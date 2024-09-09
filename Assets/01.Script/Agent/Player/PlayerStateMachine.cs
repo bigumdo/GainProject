@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public void AddState()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
