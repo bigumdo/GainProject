@@ -7,6 +7,7 @@ public class InputReader : ScriptableObject,Controls.IPlayerActions
 
 {
     public event Action<Vector2> MovementEvent;
+    public event Action JumpEvent;
 
     private Controls _controls;
     public Vector2 Movement { get; private set; }
@@ -23,8 +24,15 @@ public class InputReader : ScriptableObject,Controls.IPlayerActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        Movement = context.ReadValue<Vector2>();
+        if(!context.canceled)
+            Movement = context.ReadValue<Vector2>();
+
         MovementEvent?.Invoke(Movement);
     }
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+            JumpEvent?.Invoke();
+    }
 }

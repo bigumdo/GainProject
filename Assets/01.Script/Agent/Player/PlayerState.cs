@@ -9,6 +9,8 @@ public abstract class PlayerState
     protected PlayerStateMachine _machine;
     protected int _animaHash;
 
+    protected bool _isEndTrigger;
+
     public PlayerState(Player player,PlayerStateMachine stateMachine,string stateName)
     {
         _player = player;
@@ -17,17 +19,23 @@ public abstract class PlayerState
     }
     public virtual void Enter()
     {
-        
+        _player.AnimatorCompo.SetBool(_animaHash,true);
+        _isEndTrigger = false;
     }
 
     public virtual void Exit()
     {
-         
+        _player.AnimatorCompo.SetBool(_animaHash,false);
     }
 
     public virtual void UpdateState()
     {
 
 
+    }
+    
+    public virtual void AnimationFinishTrigger()
+    {
+        _isEndTrigger = true;
     }
 }

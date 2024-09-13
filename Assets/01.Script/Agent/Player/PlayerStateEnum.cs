@@ -6,6 +6,7 @@ public enum PlayerStateEnum
 {
     Idle,
     Run,
-    Jump
+    Jump,
+    Fall
     
 }

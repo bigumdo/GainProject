@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class Player : Agent
 {
-    public InputReader _inputReader;
-
     [Header("Setting")]
-    private float _moveSpeed;
+    public float moveSpeed;
+    public float jumpPower;
     
+    public InputReader _inputReader;
+ 
     public PlayerStateMachine StateMachine { get; protected set; }
+    
 
     protected void Awake()
     {
@@ -28,17 +30,19 @@ public class Player : Agent
                 PlayerState state = Activator.CreateInstance(
                     t, this, StateMachine, typeName) as PlayerState;
                 StateMachine.AddState(stateEnum, state);
+                
             }catch(Exception ex)
             {
                 Debug.LogError($"{typeName} is loading error! check Message");
                 Debug.LogError(ex.Message);
             }
         }
+        StateMachine.Initialize(PlayerStateEnum.Idle,this);
 
     }
 
     public void Update()
     {
-        
+        StateMachine.CurrentState.UpdateState();
     }
 }

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public interface IMovement
 {
-    public void SetMovement(Vector2 movement);
+    public void SetMovement(float movement);
     public bool IsGorund { get; }
     public void Initialize(Agent agent);
     public void Knockback(float power);
+    public void StopImmediately();
+    public void MoveDirection(float movement);
+    public void Jump(float power);
 }
