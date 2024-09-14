@@ -12,24 +12,21 @@ public class PlayerRunState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
-        _player._inputReader.MovementEvent += HandleMovementEvent;
     }
 
     public override void Exit()
     {
-        _player._inputReader.MovementEvent -= HandleMovementEvent;
         base.Exit();
-    }
-
-    private void HandleMovementEvent(Vector2 movement)
-    {
-        _movement = movement.x;
     }
 
     public override void UpdateState()
     {
-        if(_movement == 0)
+        base.UpdateState();
+        if (_player._inputReader.Movement.x == 0)
+        {
             _player.StateMachine.ChangeState(PlayerStateEnum.Idle);
-        _player.MovementCompo.SetMovement(_movement * _player.moveSpeed);
+        }
+
+        _player.MovementCompo.SetMovement(_player._inputReader.Movement.x * _player.moveSpeed);
     }
 }

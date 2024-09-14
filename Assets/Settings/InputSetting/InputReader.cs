@@ -24,9 +24,13 @@ public class InputReader : ScriptableObject,Controls.IPlayerActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        if(!context.canceled)
+        if (!context.canceled)
             Movement = context.ReadValue<Vector2>();
-
+        else
+        {
+            Movement = Vector2.zero;
+        }
+        
         MovementEvent?.Invoke(Movement);
     }
 

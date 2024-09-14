@@ -32,5 +32,9 @@ public class PlayerGroundState : PlayerState
     {
         if(!_player.MovementCompo.IsGorund)
             _player.StateMachine.ChangeState(PlayerStateEnum.Fall);
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _player.StateMachine.ChangeState(PlayerStateEnum.Attack);
+        }
     }
 }
