@@ -12,7 +12,6 @@ public class PlayerIdleState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
-        _player._inputReader.MovementEvent += HandlMovementEvent;
         _player.MovementCompo.StopImmediately();
 
     }
@@ -20,12 +19,14 @@ public class PlayerIdleState : PlayerGroundState
 
     public override void Exit()
     {
-        _player._inputReader.MovementEvent -= HandlMovementEvent;
         base.Exit();
     }
-    private void HandlMovementEvent(Vector2 movement)
+
+    public override void UpdateState()
     {
-        if(Mathf.Abs(movement.x) > 0.1f)
+        base.UpdateState();
+        if(Mathf.Abs(_player._inputReader.Movement.x) > 0.1f)
             _player.StateMachine.ChangeState(PlayerStateEnum.Run);
+        _player.MovementCompo.SetMovement(0);
     }
 }

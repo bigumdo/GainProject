@@ -25,6 +25,7 @@ public class PlayerAttackState : PlayerState
         base.UpdateState();
         if(_isEndTrigger)
             _player.StateMachine.ChangeState(PlayerStateEnum.Idle);
+        _player.MovementCompo.SetMovement(0);
     }
 
     
