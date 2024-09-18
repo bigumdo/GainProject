@@ -9,6 +9,8 @@ public class Player : Agent
     [Header("Setting")]
     public float moveSpeed;
     public float jumpPower;
+    public float hp;
+    public float damage;
     
     public InputReader _inputReader;
  

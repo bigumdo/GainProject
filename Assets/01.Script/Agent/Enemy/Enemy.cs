@@ -1,18 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+
+public class Enemy : Agent
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Setting")]
+    public float damage;
+    public float moveSpeed;
+    public float hp;
+
+
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+
+        foreach(EnemyStateEnum enemyType in Enum.GetValues( typeof(EnemyStateEnum)))
+        {
+            string typeName = enemyType.ToString();
+            try
+            {
+                Type t = Type.GetType($"Enemy{typeName}State");
+                Enemy
+
+
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError($"{typeName} is loading error! check Message");
+                Debug.LogError(ex.Message);
+            }
+        }    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
