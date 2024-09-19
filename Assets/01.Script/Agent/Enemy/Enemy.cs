@@ -24,7 +24,7 @@ public class Enemy : Agent
             try
             {
                 Type t = Type.GetType($"Enemy{typeName}State");
-                Enemy
+                //Enemy
 
 
             }
