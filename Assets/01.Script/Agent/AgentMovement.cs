@@ -14,6 +14,7 @@ public class AgentMovement : MonoBehaviour,IMovement
     private Agent _agent;
     protected float _movement;
     private Rigidbody2D _rigid;
+    public Rigidbody2D Rigid => _rigid;
 
     public bool IsGorund => _isGround;
 
@@ -42,7 +43,7 @@ public class AgentMovement : MonoBehaviour,IMovement
 
     public void StopImmediately()
     {
-        _rigid.velocity = new Vector2(0,_rigid.velocity.y);
+        _rigid.velocity = Vector2.zero;
     }
 
     public void MoveDirection(float movement)

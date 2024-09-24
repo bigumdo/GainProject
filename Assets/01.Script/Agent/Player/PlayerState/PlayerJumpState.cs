@@ -7,6 +7,7 @@ public class PlayerJumpState : PlayerState
     // Start is called before the first frame update
     public PlayerJumpState(Player player, PlayerStateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
     {
+
     }
     
 
@@ -23,10 +24,7 @@ public class PlayerJumpState : PlayerState
     public override void UpdateState()
     {
         base.UpdateState();
-        if (_isEndTrigger)
-        {
-            _isEndTrigger = false;
+        if (_player.MovementCompo.Rigid.velocity.y < -0.5f)
             _player.StateMachine.ChangeState(PlayerStateEnum.Fall);
-        }
     }
 }

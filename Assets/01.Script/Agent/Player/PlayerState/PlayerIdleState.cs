@@ -12,7 +12,7 @@ public class PlayerIdleState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
-        _player.MovementCompo.StopImmediately();
+        //_player.MovementCompo.StopImmediately();
 
     }
 
