@@ -12,7 +12,7 @@ public class PlayerFallState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        
+        _player.MovementCompo.Rigid.AddForce(new Vector2(0,-_player.gravity), ForceMode2D.Impulse);
     }
 
     public override void Exit()
