@@ -26,5 +26,6 @@ public class PlayerJumpState : PlayerState
         base.UpdateState();
         if (_player.MovementCompo.Rigid.velocity.y < -0.5f)
             _player.StateMachine.ChangeState(PlayerStateEnum.Fall);
+        _player.MovementCompo.SetMovement(_player._inputReader.Movement.x * _player.moveSpeed);
     }
 }
