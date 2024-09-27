@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
-
+    [SerializeField] public AgentStat Stat { get; protected set; }
     
     public IMovement MovementCompo { get; private set; }
     public Animator AnimatorCompo { get; private set; }
@@ -18,5 +18,8 @@ public class Agent : MonoBehaviour
         SpriteRendererCompo = visual.GetComponent<SpriteRenderer>();
         MovementCompo = GetComponent<IMovement>();
         MovementCompo.Initialize(this);
+        
+        Stat = Instantiate(Stat);
+        Stat.SetOwner(this);
     }
 }

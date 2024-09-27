@@ -9,6 +9,7 @@ public class Stat
     [SerializeField] private int _baseValue;
 
     public List<int> statList;
+    public bool isPersent;
 
     public int GetValue()
     {

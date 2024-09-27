@@ -7,13 +7,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/Stat")]
 public class AgentStat : ScriptableObject
 {
-    Stat     Strength;
-    Stat     Agility;
-    Stat     Damage;
-    Stat     MaxHealth;
-    Stat     CriticalChance;
-    Stat     CriticalDamage;
-    Stat     Armor;
+    public Stat     strength;
+    public Stat     agility;
+    public Stat     damage;
+    public Stat     maxHealth;
+    public Stat     criticalChance;
+    public Stat     criticalDamage;
+    public Stat     armor;
 
     protected Agent _owner;
     protected Dictionary<StatType, Stat> _statDictionary;
@@ -34,7 +34,7 @@ public class AgentStat : ScriptableObject
             try
             {
                 string name = LowerFirstChar(type.ToString());
-            FieldInfo statField = t.GetField(name);
+                FieldInfo statField = t.GetField(name);
                 _statDictionary.Add(type, statField.GetValue(this) as Stat); 
             }
             catch (Exception ex)
@@ -45,5 +45,18 @@ public class AgentStat : ScriptableObject
     }
 
     private string LowerFirstChar(string input)
-    => $"{char.ToLower(input[0])}{input.Substring(1)}";
+        => $"{char.ToLower(input[0])}{input.Substring(1)}";
+
+    public int ArmorDamage(int damage)
+    {
+        return damage - Mathf.FloorToInt(armor.GetValue() * 0.5f);
+    }
+
+    public int GetDamage(int damage)
+    {
+        return damage + strength.GetValue() * 2;
+    }
+
+
+
 }
