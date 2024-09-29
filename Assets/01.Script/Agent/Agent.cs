@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
-    [SerializeField] public AgentStat Stat { get; protected set; }
+    [field: SerializeField] public AgentStat Stat { get; protected set; }
     
     public IMovement MovementCompo { get; private set; }
     public Animator AnimatorCompo { get; private set; }

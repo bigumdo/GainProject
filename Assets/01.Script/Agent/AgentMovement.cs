@@ -18,8 +18,11 @@ public class AgentMovement : MonoBehaviour,IMovement
 
     public bool IsGorund => _isGround;
 
+    private Transform _groundCheck;
+
     public void Initialize(Agent agent)
     {
+        _groundCheck = transform.Find("GroundCheck");
         _agent = agent;
         _rigid = GetComponent<Rigidbody2D>();
     }
@@ -66,7 +69,7 @@ public class AgentMovement : MonoBehaviour,IMovement
     
     public void Update()
     {
-        if(Physics2D.Raycast(transform.position, Vector2.down,1,_groundMask))
+        if(Physics2D.Raycast(_groundCheck.position, Vector2.down,0.2f,_groundMask))
         {
             _isGround = true;
         }
@@ -85,7 +88,10 @@ public class AgentMovement : MonoBehaviour,IMovement
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(transform.position,Vector2.down * 1);
+        if(_groundCheck != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(_groundCheck.position, Vector2.down * 0.2f);
+        }
     }
 }
