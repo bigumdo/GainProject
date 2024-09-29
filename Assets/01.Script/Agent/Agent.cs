@@ -9,6 +9,7 @@ public class Agent : MonoBehaviour
     public IMovement MovementCompo { get; private set; }
     public Animator AnimatorCompo { get; private set; }
     public SpriteRenderer SpriteRendererCompo { get; private set; }
+    public bool isDead;
     
 
     protected virtual void Awake()

@@ -16,7 +16,9 @@ public class Health : MonoBehaviour, IDamage
 
     public void ApplyDamage(int damage)
     {
-        
+        if (_owner.isDead) return;
+
+
     }
     public float GetNormalizeHealth()
     {
