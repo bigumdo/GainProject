@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(menuName = "SO/Stat")]
 public class AgentStat : ScriptableObject
@@ -57,6 +58,23 @@ public class AgentStat : ScriptableObject
         return damage + strength.GetValue() * 2;
     }
 
+    public bool IsCritical(ref int damage)
+    {
+        if(IsCriticalPersent(criticalChance.GetValue()))
+        {
+            damage = damage * criticalDamage.GetValue();
+            return true;
+        }
+        else
+            return false;
+    }
 
-
+    private bool IsCriticalPersent(int persent)
+    {
+        int rPersent = Random.Range(0,101);
+        if (rPersent < persent)
+            return true;
+        else
+            return false;
+    }
 }

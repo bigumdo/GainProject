@@ -18,6 +18,12 @@ public class Health : MonoBehaviour, IDamage
     {
         if (_owner.isDead) return;
 
+        if (_owner.Stat.IsCritical(ref damage))
+        {
+
+        }
+
+        damage = _owner.Stat.ArmorDamage(damage);
 
     }
     public float GetNormalizeHealth()
