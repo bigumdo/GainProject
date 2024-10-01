@@ -6,9 +6,11 @@ public class Agent : MonoBehaviour
 {
     [field: SerializeField] public AgentStat Stat { get; protected set; }
     
-    public IMovement MovementCompo { get; private set; }
-    public Animator AnimatorCompo { get; private set; }
-    public SpriteRenderer SpriteRendererCompo { get; private set; }
+    public IMovement MovementCompo { get; protected set; }
+    public Animator AnimatorCompo { get; protected set; }
+    public SpriteRenderer SpriteRendererCompo { get; protected set; }
+    public Health HealthCompo { get; protected set; }
+    public DamageCaster DamageCasterCompo  { get; protected set; }
     public bool isDead;
     
 
