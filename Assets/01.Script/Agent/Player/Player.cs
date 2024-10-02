@@ -10,15 +10,14 @@ public class Player : Agent
     public float moveSpeed;
     public float jumpPower;
     public float gravity;
-    public float hp;
-    public float damage;
+
     
     public InputReader _inputReader;
  
     public PlayerStateMachine StateMachine { get; protected set; }
     
 
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
         StateMachine = new PlayerStateMachine();
@@ -47,5 +46,10 @@ public class Player : Agent
     public void Update()
     {
         StateMachine.CurrentState.UpdateState();
+    }
+
+    public override void Attack()
+    {
+        DamageCasterCompo.DamageCast();
     }
 }

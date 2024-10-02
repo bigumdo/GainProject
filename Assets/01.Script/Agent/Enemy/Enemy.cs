@@ -33,7 +33,9 @@ public class Enemy : Agent
                 Debug.LogError($"{typeName} is loading error! check Message");
                 Debug.LogError(ex.Message);
             }
-        }    
+        }
+        DamageCasterCompo.InitCaster(this);
     }
+
 
 }

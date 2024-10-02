@@ -9,4 +9,9 @@ public class PlayerAnimationTrigger : MonoBehaviour
     {
         player.StateMachine.CurrentState.AnimationFinishTrigger();
     }
+
+    public void DamageCaster()
+    {
+        player.Attack();
+    }
 }

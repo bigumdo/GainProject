@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Rendering;
 
 public class HealthBar : MonoBehaviour
 {
@@ -22,13 +23,13 @@ public class HealthBar : MonoBehaviour
 
 
 
-    private void HandleDeadEvent()
+    private void HandleHitEvent()
     {
         float fillAmount = _owner.HealthCompo.GetNormalizeHealth();
         _healthbarImage.fillAmount = fillAmount;
     }
 
-    private void HandleHitEvent()
+    private void HandleDeadEvent()
     {
         _canvasGroup.DOFade(0, 1);
     }

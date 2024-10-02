@@ -53,9 +53,9 @@ public class AgentStat : ScriptableObject
         return damage - Mathf.FloorToInt(armor.GetValue() * 0.5f);
     }
 
-    public int GetDamage(int damage)
+    public int GetDamage()
     {
-        return damage + strength.GetValue() * 2;
+        return damage.GetValue() + strength.GetValue() * 2;
     }
 
     public bool IsCritical(ref int damage)

@@ -12,3 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c32f4af0a169be4b9ab918fe1b50b1c, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
+  strength:
+    _baseValue: 30
+    statList: 
+    isPersent: 0
+  agility:
+    _baseValue: 0
+    statList: 
+    isPersent: 0
+  damage:
+    _baseValue: 0
+    statList: 
+    isPersent: 0
+  maxHealth:
+    _baseValue: 0
+    statList: 
+    isPersent: 0
+  criticalChance:
+    _baseValue: 0
+    statList: 
+    isPersent: 0
+  criticalDamage:
+    _baseValue: 0
+    statList: 
+    isPersent: 0
+  armor:
+    _baseValue: 0
+    statList: 
+    isPersent: 0

@@ -24,14 +24,12 @@ public class Health : MonoBehaviour, IDamage
 
         _isCritical = _owner.Stat.IsCritical(ref damage);
 
-        if (_isCritical)
-        {
-
-        }
-
         damage = _owner.Stat.ArmorDamage(damage);
 
-        Mathf.Clamp(_currentHealth - damage, 0, _owner.Stat.maxHealth.GetValue());
+        _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _owner.Stat.maxHealth.GetValue());
+        OnHitEvent?.Invoke();
+        if (_currentHealth <= 0)
+            OnDeadEvent?.Invoke();
 
     }
     public float GetNormalizeHealth()

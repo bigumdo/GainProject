@@ -19,10 +19,22 @@ public class Agent : MonoBehaviour
         Transform visual = transform.Find("Visual");
         AnimatorCompo = visual.GetComponent<Animator>();
         SpriteRendererCompo = visual.GetComponent<SpriteRenderer>();
+
+        DamageCasterCompo = transform.GetComponentInChildren<DamageCaster>();
+        DamageCasterCompo.InitCaster(this);
+
         MovementCompo = GetComponent<IMovement>();
         MovementCompo.Initialize(this);
-        
+
         Stat = Instantiate(Stat);
         Stat.SetOwner(this);
+
+        HealthCompo = GetComponent<Health>();
+        HealthCompo.Initialize(this);
+    } 
+
+    public virtual void Attack()
+    {
+
     }
 }
