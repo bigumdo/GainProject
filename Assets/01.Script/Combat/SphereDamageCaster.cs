@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class SphereDamageCaster : DamageCaster
@@ -29,14 +26,13 @@ public class SphereDamageCaster : DamageCaster
 
     public Vector2 StartPos()
     {
-        return _owner.SpriteRendererCompo.flipX ? transform.position + Vector3.left : transform.position + Vector3.right;
+        return transform.root.localScale.x > 0 ? transform.position + Vector3.right : transform.position + Vector3.left;
     }
 
     private void OnDrawGizmosSelected()
     {
-        if(_owner == null) return;
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(StartPos(), _castingRange);
+        Gizmos.DrawWireSphere(StartPos() * new Vector3( _castingRange,1), _castradius);
     }
 
 }

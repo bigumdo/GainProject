@@ -15,7 +15,7 @@ TagManager:
   - Ground
   - Object
   - Player
-  - 
+  - Spirit
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 1156317959
+    locked: 0
+  - name: Item
+    uniqueID: 2695446605
     locked: 0
   - name: Player
     uniqueID: 1505170837
