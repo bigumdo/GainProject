@@ -22,11 +22,11 @@ public class PlayerRunState : PlayerGroundState
     public override void UpdateState()
     {
         base.UpdateState();
-        if (_player._inputReader.Movement.x == 0)
+        if (_player.inputReader.Movement.x == 0)
         {
             _player.StateMachine.ChangeState(PlayerStateEnum.Idle);
         }
 
-        _player.MovementCompo.SetMovement(_player._inputReader.Movement.x * _player.moveSpeed);
+        _player.MovementCompo.SetMovement(_player.inputReader.Movement.x * _player.moveSpeed);
     }
 }

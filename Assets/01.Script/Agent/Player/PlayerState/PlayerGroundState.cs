@@ -13,12 +13,12 @@ public class PlayerGroundState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        _player._inputReader.JumpEvent += HandleJumpEvent;
+        _player.inputReader.JumpEvent += HandleJumpEvent;
     }
 
     public override void Exit()
     {
-        _player._inputReader.JumpEvent -= HandleJumpEvent;
+        _player.inputReader.JumpEvent -= HandleJumpEvent;
         base.Exit();
     }
 

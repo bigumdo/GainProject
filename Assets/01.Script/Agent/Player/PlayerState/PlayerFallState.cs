@@ -31,6 +31,6 @@ public class PlayerFallState : PlayerState
         base.UpdateState();
         if(_player.MovementCompo.IsGorund)
             _player.StateMachine.ChangeState(PlayerStateEnum.Idle);
-        _player.MovementCompo.SetMovement(_player._inputReader.Movement.x * _player.moveSpeed);
+        _player.MovementCompo.SetMovement(_player.inputReader.Movement.x * _player.moveSpeed);
     }
 }

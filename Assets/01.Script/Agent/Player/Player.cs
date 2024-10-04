@@ -12,7 +12,7 @@ public class Player : Agent
     public float gravity;
 
     
-    public InputReader _inputReader;
+    public InputReader inputReader;
  
     public PlayerStateMachine StateMachine { get; protected set; }
     
