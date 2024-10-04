@@ -8,6 +8,7 @@ public class InputReader : ScriptableObject,Controls.IPlayerActions
 {
     public event Action<Vector2> MovementEvent;
     public event Action MouseAttackEvent;
+    public event Action MouseSpecialEvent;
 
 
     public event Action JumpEvent;
@@ -47,5 +48,11 @@ public class InputReader : ScriptableObject,Controls.IPlayerActions
     {
         if (context.performed)
             MouseAttackEvent?.Invoke();
+    }
+
+    public void OnSpecial(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            MouseSpecialEvent?.Invoke();
     }
 }
