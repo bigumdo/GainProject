@@ -12,7 +12,7 @@ public class Player : Agent
     public float gravity;
 
     public InputReader inputReader;
-    [HideInInspector]public Weapon currentWeapon;
+    //[HideInInspector]public Weapon currentWeapon;
     
  
     public PlayerStateMachine StateMachine { get; protected set; }
@@ -41,17 +41,17 @@ public class Player : Agent
             }
         }
         StateMachine.Initialize(PlayerStateEnum.Idle,this);
-        SetWeaon();
+        //SetWeaon();
     }
 
-    public void SetWeaon()
-    {
-        currentWeapon = GetComponentInChildren<Weapon>();
-        if (currentWeapon != null)
-        {
+    //public void SetWeaon()
+    //{
+    //    currentWeapon = GetComponentInChildren<Weapon>();
+    //    if (currentWeapon != null)
+    //    {
 
-        }
-    }
+    //    }
+    //}
 
     public void Update()
     {

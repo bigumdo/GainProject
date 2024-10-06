@@ -5,16 +5,19 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 
 {
-    Player owner;
-    public IWeapon currentWeaon;
+    public Player Owner { get; private set; }
+    public Animator Animator { get; private set; }
+    public SpriteRenderer SpriteRenderer { get; private set; }
+
     private void Awake()
     {
-        owner = transform.root.GetComponent<Player>();
+        Owner = transform.root.GetComponent<Player>();
+        Animator = GetComponent<Animator>();
     }
 
-    public void SetWeapon()
-    {
-        currentWeaon = GetComponentInChildren<IWeapon>();
-    }
+    //public void SetWeapon()
+    //{
+    //    currentWeaon = GetComponentInChildren<IWeapon>();
+    //}
 
 }
