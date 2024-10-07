@@ -16,10 +16,13 @@ public class WeaponStateMachine<T> where T : Enum
     {
         _owner = owner;
         CurrentState = StateDictionary[startState];
+        CurrentState.Enter();
     }
 
     public void ChangeState(T stateEnum)
     {
+        Debug.Log(1);
+
         CurrentState.Enter();
         CurrentState = StateDictionary[stateEnum];
         CurrentState.Exit();

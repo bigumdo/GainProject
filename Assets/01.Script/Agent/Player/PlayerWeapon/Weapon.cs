@@ -6,13 +6,13 @@ public class Weapon : MonoBehaviour
 
 {
     public Player Owner { get; private set; }
-    public Animator Animator { get; private set; }
+    public Animator AnimatorCompo { get; private set; }
     public SpriteRenderer SpriteRenderer { get; private set; }
 
     private void Awake()
     {
         Owner = transform.root.GetComponent<Player>();
-        Animator = GetComponent<Animator>();
+        AnimatorCompo = GetComponent<Animator>();
     }
 
     //public void SetWeapon()
