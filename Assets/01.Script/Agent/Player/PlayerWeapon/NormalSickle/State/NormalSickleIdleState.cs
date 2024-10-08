@@ -13,6 +13,7 @@ public class NormalSickleIdleState : NormalSickleDefaultState
 
         base.Enter();
         _owner.inputReader.MouseAttackEvent += HandleAttackEvent;
+        _isAttack = false;
 
     }
 
@@ -27,3 +28,4 @@ public class NormalSickleIdleState : NormalSickleDefaultState
         _stateMachine.ChangeState(NormalSickleEnum.Up);
     }
 }
+

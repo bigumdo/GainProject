@@ -25,8 +25,9 @@ public class NormalSickle : Weapon, IWeapon
 
     public WeaponStateMachine<NormalSickleEnum> WeaponStateMachine { get; private set; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         WeaponStateMachine = new WeaponStateMachine<NormalSickleEnum>();
         foreach (NormalSickleEnum i in Enum.GetValues(typeof(NormalSickleEnum)))
         {
@@ -47,6 +48,11 @@ public class NormalSickle : Weapon, IWeapon
 
         }
         WeaponStateMachine.Initialize(NormalSickleEnum.Idle,Owner);
+    }
+
+    private void Start()
+    {
+        //AnimatorCompo.SetBool("Up", true);
 
     }
 
@@ -85,10 +91,10 @@ public class NormalSickle : Weapon, IWeapon
 
     //}
 
-    private void AttackEndTrigger()
-    {
-        _isAttackCombo++;
-    }
+    //private void AttackEndTrigger()
+    //{
+    //    _isAttackCombo++;
+    //}
 
     //public void HandleAttackEvent()
     //{

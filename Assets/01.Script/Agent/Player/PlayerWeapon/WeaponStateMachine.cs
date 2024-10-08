@@ -21,11 +21,10 @@ public class WeaponStateMachine<T> where T : Enum
 
     public void ChangeState(T stateEnum)
     {
-        Debug.Log(1);
 
-        CurrentState.Enter();
-        CurrentState = StateDictionary[stateEnum];
         CurrentState.Exit();
+        CurrentState = StateDictionary[stateEnum];
+        CurrentState.Enter();
     }
 
     public void AddState(T stateEnum, WeaponState<T> weaponState)

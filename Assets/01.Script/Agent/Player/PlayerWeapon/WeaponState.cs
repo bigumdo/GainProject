@@ -9,6 +9,7 @@ public class WeaponState<T> where T : Enum
     protected Weapon _weapon;
     protected WeaponStateMachine<T> _stateMachine;
     protected int _animaHash;
+    protected bool _isAttack;
 
     protected bool _isEndTrigger;
 
@@ -17,6 +18,7 @@ public class WeaponState<T> where T : Enum
         _owner = owner;
         _weapon = weapon;
         _stateMachine = stateMachine;
+
         _animaHash = Animator.StringToHash( animaHash);
     }
 
