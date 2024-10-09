@@ -8,6 +8,6 @@ public class WeaponAnimationTrigger : MonoBehaviour
 
     public void AnimationEnd()
     {
-        _weapon.Sta
+        //_weapon.Sta
     }
 }
