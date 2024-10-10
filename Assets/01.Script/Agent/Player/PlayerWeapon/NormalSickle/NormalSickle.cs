@@ -18,7 +18,6 @@ public class NormalSickle : Weapon, IWeapon
     //private readonly int _attack = Animator.StringToHash("Attack");
     //private readonly int _idle = Animator.StringToHash("Idle");
     //private readonly int _attackCombo = Animator.StringToHash("AttackCombo");
-
     private bool _isAttack;
     private int _isAttackCombo;
     private float time;
@@ -50,10 +49,9 @@ public class NormalSickle : Weapon, IWeapon
         WeaponStateMachine.Initialize(NormalSickleEnum.Idle,Owner);
     }
 
-    private void Start()
+    private void FixedUpdate()
     {
-        //AnimatorCompo.SetBool("Up", true);
-
+        WeaponStateMachine.CurrentState.StateUpdate();
     }
 
     //private void OnEnable()
@@ -107,8 +105,15 @@ public class NormalSickle : Weapon, IWeapon
     //    Animator.SetInteger(_attackCombo, _isAttackCombo);
     //}
 
+
+
     public void Attack()
     {
         Owner.Attack();
+    }
+
+    public override void AnimationEnd()
+    {
+        WeaponStateMachine.CurrentState.AnimationEndTrigger();
     }
 }

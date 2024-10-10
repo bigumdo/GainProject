@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponStateMachine<T> where T : Enum
+public class WeaponStateMachine<T>  where T : Enum
 {
     public Dictionary<T, WeaponState<T>> StateDictionary = 
         new Dictionary<T, WeaponState<T>>();

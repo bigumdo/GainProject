@@ -30,4 +30,9 @@ public class NormalSickleUpState : NormalSickleDefaultState
     {
         base.StateUpdate();
     }
+
+    public override void AnimationEndTrigger()
+    {
+        base.AnimationEndTrigger();
+    }
 }

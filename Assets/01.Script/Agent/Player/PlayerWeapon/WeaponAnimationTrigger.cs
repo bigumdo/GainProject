@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class WeaponAnimationTrigger : MonoBehaviour
 {
-    public Weapon _weapon;
+    private Weapon _weapon;
+
+    private void Awake()
+    {
+        _weapon = GetComponentInParent<Weapon>();
+    }
 
     public void AnimationEnd()
     {
-        //_weapon.Sta
+        _weapon.AnimationEnd();
     }
 }
