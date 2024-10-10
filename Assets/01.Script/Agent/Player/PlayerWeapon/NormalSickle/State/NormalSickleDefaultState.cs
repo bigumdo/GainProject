@@ -12,19 +12,14 @@ public class NormalSickleDefaultState  : WeaponState<NormalSickleEnum>
     public override void Enter()
     {
         base.Enter();
-        _owner.inputReader.MouseSpecialEvent += HandleSpecialEvent;
     }
 
     public override void Exit()
     {
-        _owner.inputReader.MouseSpecialEvent -= HandleSpecialEvent;
         base.Exit();
     }
 
-    private void HandleSpecialEvent()
-    {
-        _stateMachine.ChangeState(NormalSickleEnum.Special);
-    }
+
 
     public override void StateUpdate()
     {
