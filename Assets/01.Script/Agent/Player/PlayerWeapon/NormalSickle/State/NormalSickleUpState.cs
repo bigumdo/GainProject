@@ -40,7 +40,7 @@ public class NormalSickleUpState : NormalSickleDefaultState
 
     public override void StateUpdate()
     {
-        if(Time.time - startTime > 3)
+        if(Time.time - startTime > 1)
             _stateMachine.ChangeState(NormalSickleEnum.Idle);
 
     }

@@ -12,6 +12,8 @@ public class Weapon: MonoBehaviour
     [Header("Setting")]
     public float attackDelay;
 
+    private ParticleSystem effectObj;
+
 
     protected virtual void Awake()
     {
