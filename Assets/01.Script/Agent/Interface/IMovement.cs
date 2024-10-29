@@ -10,6 +10,6 @@ public interface IMovement
     public void Knockback(float power);
     public void StopImmediately();
     public void MoveDirection(float movement);
-    public void Jump(float power);
+
     public Rigidbody2D Rigid {  get; }
 }

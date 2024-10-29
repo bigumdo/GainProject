@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,11 +15,19 @@ public class PlayerJumpState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        _player.inputReader.PlayerDashEvent += HandleDashEvent;
     }
 
     public override void Exit()
     {
+        _player.inputReader.PlayerDashEvent -= HandleDashEvent;
         base.Exit();
+    }
+
+    private void HandleDashEvent()
+    {
+        if (_player.PlayerMovementCompo.IsDash)
+            _player.StateMachine.ChangeState(PlayerStateEnum.Dash);
     }
 
     public override void UpdateState()

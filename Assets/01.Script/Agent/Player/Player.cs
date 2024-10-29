@@ -9,9 +9,12 @@ public class Player : Agent
     [Header("Setting")]
     public float moveSpeed;
     public float jumpPower;
+    public float dashPower;
     public float gravity;
+    public float dashTime;
 
     public InputReader inputReader;
+    public IPlayerMovement PlayerMovementCompo { get; private set; }
     //[HideInInspector]public Weapon currentWeapon;
     
  
@@ -22,8 +25,8 @@ public class Player : Agent
     {
         base.Awake();
         StateMachine = new PlayerStateMachine();
-        
-        foreach(PlayerStateEnum stateEnum in Enum.GetValues(typeof(PlayerStateEnum)))
+        PlayerMovementCompo = GetComponent<IPlayerMovement>();
+        foreach (PlayerStateEnum stateEnum in Enum.GetValues(typeof(PlayerStateEnum)))
         {
             string typeName = stateEnum.ToString();
 

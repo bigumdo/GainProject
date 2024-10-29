@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,27 +15,37 @@ public class PlayerGroundState : PlayerState
     {
         base.Enter();
         _player.inputReader.JumpEvent += HandleJumpEvent;
+        _player.inputReader.PlayerDashEvent += HandleDashEvent;
     }
 
     public override void Exit()
     {
         _player.inputReader.JumpEvent -= HandleJumpEvent;
+        _player.inputReader.PlayerDashEvent -= HandleDashEvent;
         base.Exit();
+    }
+
+    private void HandleDashEvent()
+    {
+        if(_player.PlayerMovementCompo.IsDash)
+            _player.StateMachine.ChangeState(PlayerStateEnum.Dash);
     }
 
     private void HandleJumpEvent()
     {
         _player.StateMachine.ChangeState(PlayerStateEnum.Jump);
-        _player.MovementCompo.Jump(_player.jumpPower);
+        _player.PlayerMovementCompo.Jump(_player.jumpPower);
+
     }
 
     public override void UpdateState()
     {
         if(!_player.MovementCompo.IsGorund)
             _player.StateMachine.ChangeState(PlayerStateEnum.Fall);
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            _player.StateMachine.ChangeState(PlayerStateEnum.Attack);
-        }
+        //if()
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    _player.StateMachine.ChangeState(PlayerStateEnum.Attack);
+        //}
     }
 }

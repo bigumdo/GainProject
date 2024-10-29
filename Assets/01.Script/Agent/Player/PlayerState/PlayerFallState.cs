@@ -13,19 +13,20 @@ public class PlayerFallState : PlayerState
     {
         base.Enter();
         _player.MovementCompo.Rigid.AddForce(new Vector2(0,-_player.gravity), ForceMode2D.Impulse);
+        _player.inputReader.PlayerDashEvent += HandleDashEvent;
     }
 
     public override void Exit()
     {
-        
+        _player.inputReader.PlayerDashEvent -= HandleDashEvent;
         base.Exit();
     }
 
-    private void HandleMovementEvent(Vector2 obj)
+    private void HandleDashEvent()
     {
-        
+        if (_player.PlayerMovementCompo.IsDash)
+            _player.StateMachine.ChangeState(PlayerStateEnum.Dash);
     }
-
     public override void UpdateState()
     {
         base.UpdateState();

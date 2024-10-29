@@ -6,21 +6,23 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class AgentMovement : MonoBehaviour,IMovement
+
+
 {
-    [FormerlySerializedAs("_playerMask")] [SerializeField]
-    private LayerMask _groundMask;
-    
-    private bool _isGround;
-    private Agent _agent;
+    [FormerlySerializedAs("_playerMask")] 
+    [SerializeField] protected LayerMask _groundMask;
+
+    protected bool _isGround;
+    protected Agent _agent;
     protected float _movement;
-    private Rigidbody2D _rigid;
+    protected Rigidbody2D _rigid;
     public Rigidbody2D Rigid => _rigid;
 
     public bool IsGorund => _isGround;
 
-    private Transform _groundCheck;
+    protected Transform _groundCheck;
 
-    public void Initialize(Agent agent)
+    public virtual void Initialize(Agent agent)
     {
         _groundCheck = transform.Find("GroundCheck");
         _agent = agent;
@@ -28,16 +30,11 @@ public class AgentMovement : MonoBehaviour,IMovement
     }
     
 
-    public void Movement()
+    public virtual void Movement()
     {
         _rigid.velocity = new Vector2(_movement,_rigid.velocity.y);
     }
 
-    public void Jump(float power)
-    {
-        StopImmediately();
-        _rigid.AddForce(Vector2.up * power, ForceMode2D.Impulse);
-    }
 
     public void Knockback(float power)
     {
@@ -65,9 +62,10 @@ public class AgentMovement : MonoBehaviour,IMovement
     public virtual void SetMovement(float movement)
     {
         _movement = movement ;
+        MoveDirection(movement);
     }
     
-    public void Update()
+    public virtual void Update()
     {
         if(Physics2D.Raycast(_groundCheck.position, Vector2.down,0.2f,_groundMask))
         {
@@ -82,7 +80,7 @@ public class AgentMovement : MonoBehaviour,IMovement
     private void FixedUpdate()
     {
         Movement();
-        MoveDirection(_movement);
+        SetMovement(_movement);
 
     }
 
