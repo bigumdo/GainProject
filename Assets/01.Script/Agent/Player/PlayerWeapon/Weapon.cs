@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Weapon: MonoBehaviour 
+public class Weapon : MonoBehaviour, IWeapon
 {
     public Player Owner { get; private set; }
     public Animator AnimatorCompo { get; private set; }
@@ -15,10 +15,21 @@ public class Weapon: MonoBehaviour
     private ParticleSystem effectObj;
 
 
+
     protected virtual void Awake()
     {
         Owner = transform.root.GetComponent<Player>();
         AnimatorCompo = GetComponentInChildren<Animator>();
+    }
+
+    public virtual void Attack()
+    {
+
+    }
+
+    public void SetDamage()
+    {
+        
     }
 
     public virtual void AnimationEnd()
@@ -26,20 +37,6 @@ public class Weapon: MonoBehaviour
 
     }
 
-    public void Delay(Action action, float delay)
-    {
-        StartCoroutine( DelayCoroutine(action, delay));
-    }
 
-    private IEnumerator DelayCoroutine(Action action, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        action?.Invoke();
-    }
-
-    //public void SetWeapon()
-    //{
-    //    currentWeaon = GetComponentInChildren<IWeapon>();
-    //}
 
 }

@@ -34,7 +34,6 @@ public class PlayerGroundState : PlayerState
     private void HandleJumpEvent()
     {
         _player.StateMachine.ChangeState(PlayerStateEnum.Jump);
-        _player.PlayerMovementCompo.Jump(_player.jumpPower);
 
     }
 
@@ -42,10 +41,7 @@ public class PlayerGroundState : PlayerState
     {
         if(!_player.MovementCompo.IsGorund)
             _player.StateMachine.ChangeState(PlayerStateEnum.Fall);
-        //if()
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //{
-        //    _player.StateMachine.ChangeState(PlayerStateEnum.Attack);
-        //}
+        
+            
     }
 }

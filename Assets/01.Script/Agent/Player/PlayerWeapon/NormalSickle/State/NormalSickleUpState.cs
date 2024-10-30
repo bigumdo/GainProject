@@ -30,7 +30,7 @@ public class NormalSickleUpState : NormalSickleDefaultState
     private void HandleSpecialEvent()
     {
 
-        _stateMachine.ChangeState(NormalSickleEnum.Special);
+        //_stateMachine.ChangeState(NormalSickleEnum.Special);
     }
 
     private void HandleAttack()

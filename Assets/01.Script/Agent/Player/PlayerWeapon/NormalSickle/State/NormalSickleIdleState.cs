@@ -25,7 +25,7 @@ public class NormalSickleIdleState : NormalSickleDefaultState
 
     private void HandleAttackEvent()
     {
-        _stateMachine.ChangeState(NormalSickleEnum.Up);
+        _stateMachine.ChangeState(NormalSickleEnum.Attack);
     }
 }
 

@@ -6,18 +6,12 @@ using UnityEngine;
 public enum NormalSickleEnum
 {
     Idle,
-    Up,
     Attack,
-    Special
 }
 
 
-public class NormalSickle : Weapon, IWeapon
+public class NormalSickle : Weapon
 {
-
-    //private readonly int _attack = Animator.StringToHash("Attack");
-    //private readonly int _idle = Animator.StringToHash("Idle");
-    //private readonly int _attackCombo = Animator.StringToHash("AttackCombo");
     private bool _isAttack;
     private int _isAttackCombo;
     private float time;
@@ -42,7 +36,7 @@ public class NormalSickle : Weapon, IWeapon
             catch(Exception e)
             {
                 Debug.LogError(typeName + "¾ø¾î");
-                Debug.LogError(e.Message);
+                //Debug.LogError(e.Message);
             }
 
         }

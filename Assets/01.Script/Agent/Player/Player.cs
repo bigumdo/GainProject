@@ -12,6 +12,7 @@ public class Player : Agent
     public float dashPower;
     public float gravity;
     public float dashTime;
+    public float dashCnt;
 
     public InputReader inputReader;
     public IPlayerMovement PlayerMovementCompo { get; private set; }
@@ -19,7 +20,7 @@ public class Player : Agent
     
  
     public PlayerStateMachine StateMachine { get; protected set; }
-    
+
 
     protected override void Awake()
     {
@@ -64,5 +65,16 @@ public class Player : Agent
     public override void Attack()
     {
         DamageCasterCompo.DamageCast();
+    }
+
+    public void Delay(Action action, float delay)
+    {
+        StartCoroutine(DelayCoroutine(action, delay));
+    }
+
+    private IEnumerator DelayCoroutine(Action action, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        action?.Invoke();
     }
 }

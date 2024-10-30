@@ -13,7 +13,8 @@ public class NormalSickleAttackState : WeaponState<NormalSickleEnum>
         base.StateUpdate();
         if (_isAttack)
         {
-            _weapon.Delay(() => _stateMachine.ChangeState(NormalSickleEnum.Idle), _weapon.attackDelay);
+            _stateMachine.ChangeState(NormalSickleEnum.Idle);
+            //_weapon.Owner.Delay(() => _stateMachine.ChangeState(NormalSickleEnum.Idle), _weapon.attackDelay);
             _isAttack = false;
         }
     }

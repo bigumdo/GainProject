@@ -35,7 +35,7 @@ public class PlayerMovement : AgentMovement, IPlayerMovement
     {
         //StopImmediately();
         IsDash = false;
-        _rigid.velocity = new Vector2((transform.localScale.x > 0 ? 1 : -1) * dashPower, _rigid.velocity.y);
+        _rigid.AddForce(new Vector2((transform.localScale.x > 0 ? 1 : -1) * dashPower, 0));
         //Debug.Log((transform.localScale.x > 0 ? Vector2.right : Vector2.left));
     }
 

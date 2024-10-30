@@ -23,7 +23,7 @@ public class NormalSickleSpecialState : WeaponState<NormalSickleEnum>
     {
         if (_isEndTrigger)
         {
-            _weapon.Delay(()=>_stateMachine.ChangeState(NormalSickleEnum.Idle), _weapon.attackDelay);
+            _weapon.Owner.Delay(()=>_stateMachine.ChangeState(NormalSickleEnum.Idle), _weapon.attackDelay);
             _isEndTrigger = false;
         }
     }
