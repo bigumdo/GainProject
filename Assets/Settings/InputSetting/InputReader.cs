@@ -9,7 +9,7 @@ public class InputReader : ScriptableObject,Controls.IPlayerActions
     public event Action<Vector2> MovementEvent;
     public event Action MouseAttackEvent;
     public event Action MouseSpecialEvent;
-    public event Action PlayerDashEvent;
+    public event Action DashEvent;
 
 
     public event Action JumpEvent;
@@ -60,6 +60,6 @@ public class InputReader : ScriptableObject,Controls.IPlayerActions
     public void OnDash(InputAction.CallbackContext context)
     {
         if(context.performed)
-            PlayerDashEvent?.Invoke();
+            DashEvent?.Invoke();
     }
 }

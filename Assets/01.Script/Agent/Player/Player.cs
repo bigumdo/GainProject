@@ -12,7 +12,10 @@ public class Player : Agent
     public float dashPower;
     public float gravity;
     public float dashTime;
-    public float dashCnt;
+    public float jumpCnt;
+
+    private float _currentJumpCnt;
+    public bool CanJump => _currentJumpCnt > 0;
 
     public InputReader inputReader;
     public IPlayerMovement PlayerMovementCompo { get; private set; }
@@ -24,6 +27,7 @@ public class Player : Agent
 
     protected override void Awake()
     {
+        _currentJumpCnt = jumpCnt;
         base.Awake();
         StateMachine = new PlayerStateMachine();
         PlayerMovementCompo = GetComponent<IPlayerMovement>();
@@ -48,14 +52,15 @@ public class Player : Agent
         //SetWeaon();
     }
 
-    //public void SetWeaon()
-    //{
-    //    currentWeapon = GetComponentInChildren<Weapon>();
-    //    if (currentWeapon != null)
-    //    {
+    public void ResetJumpCnt()
+    {
+        _currentJumpCnt = jumpCnt;
+    }
 
-    //    }
-    //}
+    public void DecreaseJumpCount()
+    {
+        _currentJumpCnt--;
+    }
 
     public void Update()
     {
@@ -77,4 +82,6 @@ public class Player : Agent
         yield return new WaitForSeconds(delay);
         action?.Invoke();
     }
+
+
 }

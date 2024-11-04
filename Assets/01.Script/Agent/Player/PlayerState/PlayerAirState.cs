@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,21 @@ public class PlayerAirState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        _player.inputReader.PlayerDashEvent += HandleDashEvent;
+        _player.inputReader.DashEvent += HandleDashEvent;
+        _player.inputReader.JumpEvent += HandleJumpEvent;
     }
 
     public override void Exit()
     {
-        _player.inputReader.PlayerDashEvent -= HandleDashEvent;
+        _player.inputReader.DashEvent -= HandleDashEvent;
+        _player.inputReader.JumpEvent -= HandleJumpEvent;
         base.Exit();
+    }
+
+    private void HandleJumpEvent()
+    {
+        if(_player.CanJump)
+            _player.StateMachine.ChangeState(PlayerStateEnum.Jump);
     }
 
     private void HandleDashEvent()
@@ -28,7 +37,7 @@ public class PlayerAirState : PlayerState
 
     public override void UpdateState()
     {
-        _player.MovementCompo.SetMovement(_player.inputReader.Movement.x * _player.moveSpeed);
+        _player.MovementCompo.SetMovement(_player.inputReader.Movement.x * 0.7f * _player.moveSpeed);
         //if (Input.GetKeyDown(KeyCode.Q))
         //{
         //    _player.StateMachine.ChangeState(PlayerStateEnum.Attack);

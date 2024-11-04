@@ -41,6 +41,11 @@ public class AgentMovement : MonoBehaviour,IMovement
         
     }
 
+    public void ResetJumpCnt()
+    {
+
+    }
+
     public void StopImmediately()
     {
         _rigid.velocity = Vector2.zero;

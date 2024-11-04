@@ -15,13 +15,13 @@ public class PlayerGroundState : PlayerState
     {
         base.Enter();
         _player.inputReader.JumpEvent += HandleJumpEvent;
-        _player.inputReader.PlayerDashEvent += HandleDashEvent;
+        _player.inputReader.DashEvent += HandleDashEvent;
     }
 
     public override void Exit()
     {
         _player.inputReader.JumpEvent -= HandleJumpEvent;
-        _player.inputReader.PlayerDashEvent -= HandleDashEvent;
+        _player.inputReader.DashEvent -= HandleDashEvent;
         base.Exit();
     }
 

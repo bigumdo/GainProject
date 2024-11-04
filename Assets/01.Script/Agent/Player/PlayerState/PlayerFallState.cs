@@ -24,6 +24,9 @@ public class PlayerFallState : PlayerAirState
     {
         base.UpdateState();
         if(_player.MovementCompo.IsGorund)
+        {
+            _player.ResetJumpCnt();
             _player.StateMachine.ChangeState(PlayerStateEnum.Idle);
+        }
     }
 }

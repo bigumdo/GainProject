@@ -15,10 +15,11 @@ public class PlayerJumpState : PlayerAirState
     public override void Enter()
     {
         base.Enter();
+
+
+        _player.MovementCompo.StopImmediately();
+        _player.DecreaseJumpCount();
         _player.PlayerMovementCompo.Jump(_player.jumpPower);
-
-
-
     }
 
     public override void Exit()

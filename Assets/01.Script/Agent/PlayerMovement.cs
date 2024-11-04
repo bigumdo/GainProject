@@ -12,10 +12,12 @@ public class PlayerMovement : AgentMovement, IPlayerMovement
     [SerializeField] private float _dashCoolTime;
 
     private float _currentDashCoolTime;
+    private Player _player;
 
     private void Awake()
     {
         _currentDashCoolTime = _dashCoolTime;
+        _player = _agent as Player;
     }
 
 
