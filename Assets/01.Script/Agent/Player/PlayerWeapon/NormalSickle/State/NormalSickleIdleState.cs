@@ -12,14 +12,13 @@ public class NormalSickleIdleState : NormalSickleDefaultState
     {
 
         base.Enter();
-        _owner.inputReader.MouseAttackEvent += HandleAttackEvent;
-        _isAttack = false;
+        _owner.inputReader.AttackEvent += HandleAttackEvent;
 
     }
 
     public override void Exit()
     {
-        _owner.inputReader.MouseAttackEvent -= HandleAttackEvent;
+        _owner.inputReader.AttackEvent -= HandleAttackEvent;
         base.Exit();
     }
 

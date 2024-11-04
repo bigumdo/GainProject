@@ -24,6 +24,7 @@ public class WeaponState<T> where T : Enum
 
     public virtual void Enter()
     {
+        _isEndTrigger = false;
         _weapon.AnimatorCompo.SetBool(_animaHash, true);
     }
 

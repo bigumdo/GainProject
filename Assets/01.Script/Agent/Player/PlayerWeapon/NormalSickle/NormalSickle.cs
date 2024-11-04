@@ -35,7 +35,7 @@ public class NormalSickle : Weapon
             }
             catch(Exception e)
             {
-                Debug.LogError(typeName + "없어");
+                Debug.LogError(typeName + "없어" + e.Message);
                 //Debug.LogError(e.Message);
             }
 
@@ -48,60 +48,7 @@ public class NormalSickle : Weapon
         WeaponStateMachine.CurrentState.StateUpdate();
     }
 
-    //private void OnEnable()
-    //{
-    //    Owner.inputReader.MouseAttackEvent += HandleAttackEvent;
-    //    Owner.inputReader.MouseSpecialEvent += HandleSpecialEvent;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    Owner.inputReader.MouseAttackEvent -= HandleAttackEvent;
-    //    Owner.inputReader.MouseSpecialEvent -= HandleSpecialEvent;
-    //}
-
-    //private void HandleSpecialEvent()
-    //{
-    //    Animator.SetBool(_idle, true);
-    //}
-
-    //private void Update()
-    //{
-    //    if (_isAttack)
-    //    {
-    //        time += Time.deltaTime;
-    //        if (time >= 0.8f)
-    //        {
-    //            _isAttack = false;
-    //            Animator.SetBool(_idle, true);
-    //            Animator.SetBool(_attack, _isAttack);
-    //            _isAttackCombo = 0;
-    //            time = 0;
-    //        }
-    //    }
-
-
-    //}
-
-    //private void AttackEndTrigger()
-    //{
-    //    _isAttackCombo++;
-    //}
-
-    //public void HandleAttackEvent()
-    //{
-    //    if (_isAttackCombo > 1)
-    //        _isAttackCombo = 0;
-    //    time = 0;
-    //    _isAttack = true;
-    //    Animator.SetBool(_idle, false);
-    //    Animator.SetBool(_attack, _isAttack);
-    //    Animator.SetInteger(_attackCombo, _isAttackCombo);
-    //}
-
-
-
-    public void Attack()
+    public override void Attack()
     {
         Owner.Attack();
     }
