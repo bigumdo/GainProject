@@ -10,7 +10,8 @@ public class SphereDamageCaster : DamageCaster
     {
 
         Vector2 startPos = StartPos();
-        RaycastHit2D hit = Physics2D.CircleCast(startPos, _castradius, startPos, _castingRange, targetLayer);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position,
+            _castradius, CastDirection().normalized, _castingRange, targetLayer);
         bool isHit = hit.collider != null;
         if (isHit)
         {
@@ -26,13 +27,21 @@ public class SphereDamageCaster : DamageCaster
 
     public Vector2 StartPos()
     {
-        return transform.root.localScale.x > 0 ? transform.position + Vector3.right : transform.position + Vector3.left;
+
+        return transform.root.localScale.x > 0 ? transform.position + Vector3.right * _castingRange : transform.position + Vector3.left * _castingRange;
+    }
+
+    public Vector2 CastDirection()
+    {
+
+        return transform.root.localScale.x > 0 ? Vector3.right : Vector3.left ;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(StartPos() * new Vector3( _castingRange,1), _castradius);
+        Gizmos.DrawWireSphere(StartPos() , _castradius);
+        
     }
 
 }
