@@ -57,4 +57,9 @@ public class NormalSickle : Weapon
     {
         WeaponStateMachine.CurrentState.AnimationEndTrigger();
     }
+
+    public override void AnimationAttack()
+    {
+        WeaponStateMachine.CurrentState.AnimationAttack();
+    }
 }

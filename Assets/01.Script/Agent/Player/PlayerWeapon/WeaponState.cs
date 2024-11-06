@@ -12,6 +12,7 @@ public class WeaponState<T> where T : Enum
     protected bool _isAttack;
 
     protected bool _isEndTrigger;
+    protected bool _isAttackTrigger;
 
     public WeaponState(Player owner,Weapon weapon, WeaponStateMachine<T> stateMachine, string animaHash)
     {
@@ -25,6 +26,7 @@ public class WeaponState<T> where T : Enum
     public virtual void Enter()
     {
         _isEndTrigger = false;
+        _isAttackTrigger = false;
         _weapon.AnimatorCompo.SetBool(_animaHash, true);
     }
 
@@ -41,5 +43,10 @@ public class WeaponState<T> where T : Enum
     public virtual void AnimationEndTrigger()
     {
         _isEndTrigger = true;
+    }
+
+    public virtual void AnimationAttack()
+    {
+        _isAttackTrigger = true;
     }
 }

@@ -15,4 +15,9 @@ public class WeaponAnimationTrigger : MonoBehaviour
     {
         _weapon.AnimationEnd();
     }
+
+    public void AnimationAttack()
+    {
+        _weapon.AnimationAttack();
+    }
 }
