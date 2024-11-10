@@ -56,10 +56,14 @@ public class AgentMovement : MonoBehaviour,IMovement
         if (movement != 0)
         {
             if(movement > 0)
-                _agent.transform.localScale = Vector3.one;
+            {
+                //_agent.SpriteRendererCompo.flipX = false;
+                //_agent.transform.localScale = Vector3.one;
+            }
             else if(movement < 0)
             {
-                _agent.transform.localScale = new Vector3(-1,1,1);
+                //_agent.SpriteRendererCompo.flipX = true;
+                //_agent.transform.localScale = new Vector3(-1,1,1);
             }
         }
     }
