@@ -6,7 +6,7 @@ public class CurrentWeapon : MonoBehaviour
 {
     private Weapon _weapon;
     private Agent _owner;
-
+    private float mouseDir;
     private void Awake()
     {
         _weapon = GetComponentInChildren<Weapon>();
@@ -15,13 +15,8 @@ public class CurrentWeapon : MonoBehaviour
 
     private void Update()
     {
-        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition
-            - transform.position);
-        //Debug.Log(mouse);
-        //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        //Debug.Log(Input.mousePosition);
-        float angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg;
-        if (Mathf.Abs(angle) > 90)
+        mouseDir = GameManager.Instance.MouseAngle;
+        if (Mathf.Abs(mouseDir) > 90)
         {
             _owner.SpriteRendererCompo.flipX = true;
             transform.localScale = new Vector3(-1, -1, 1);
@@ -35,7 +30,7 @@ public class CurrentWeapon : MonoBehaviour
             //transform.root.localScale = new Vector3(1, 1, 1);
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        transform.localRotation = Quaternion.AngleAxis(angle, transform.forward);
+        transform.localRotation = Quaternion.AngleAxis(mouseDir, transform.forward);
 
     }
 

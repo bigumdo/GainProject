@@ -37,8 +37,18 @@ public class PlayerMovement : AgentMovement, IPlayerMovement
     {
         //StopImmediately();
         IsDash = false;
-        _rigid.AddForce(new Vector2((transform.localScale.x > 0 ? 1 : -1) * dashPower, 0));
+        StopImmediately();
+        Vector2 dir = GameManager.Instance.MouseDir;
+        _rigid.velocity = dir * dashPower;
+        StartCoroutine(StopDash());
+        //_rigid.AddForce(new Vector2((transform.localScale.x > 0 ? 1 : -1) * dashPower, 0));
         //Debug.Log((transform.localScale.x > 0 ? Vector2.right : Vector2.left));
+    }
+
+    private IEnumerator StopDash()
+    {
+        yield return new WaitForSeconds(0.1f);
+        StopImmediately();
     }
 
     public override void Update()

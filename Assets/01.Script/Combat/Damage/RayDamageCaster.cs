@@ -6,9 +6,20 @@ public class RayDamageCaster : DamageCaster
 {
 
 
-    public float detectionRange = 10f; // 레이캐스트 거리
-    public float checkAngle = 45f; // 감지 각도 범위 (양쪽으로 퍼짐)
-    public int rayCount = 10; // 쏠 레이캐스트 개수
+    [SerializeField] private float detectionRange = 10f; // 레이캐스트 거리
+    [SerializeField] private float checkAngle = 45f; // 감지 각도 범위 (양쪽으로 퍼짐)
+    [SerializeField] private int rayCount = 10; // 쏠 레이캐스트 개수
+    private CurrentWeapon _weapon;
+
+    private void Awake()
+    {
+        _weapon = transform.root.Find("Weapon").GetComponent<CurrentWeapon>();
+    }
+
+    private void Update()
+    {
+        transform.localRotation = Quaternion.Euler(0, 0, _weapon.transform.localRotation.z);
+    }
 
     public override bool DamageCast()
     {
@@ -20,7 +31,7 @@ public class RayDamageCaster : DamageCaster
         {
             // 각 레이캐스트의 각도를 계산합니다.
             float angle = startAngle + i * angleStep;
-            Vector2 direction = Quaternion.Euler(0, 0, angle) * transform.right;
+            Vector2 direction = Quaternion.Euler(0, 0, angle + _weapon.transform.localRotation.z) * transform.right;
 
             //// 레이캐스트 발사
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRange, targetLayer);
@@ -49,7 +60,7 @@ public class RayDamageCaster : DamageCaster
         for (int i = 0; i < rayCount; i++)
         {
             float angle = startAngle + i * angleStep;
-            Vector2 direction = Quaternion.Euler(0, 0, angle) * transform.right;
+            Vector2 direction = Quaternion.Euler(0, 0, angle ) * transform.right;
             Gizmos.DrawRay(transform.position, direction * detectionRange);
         }
     }
