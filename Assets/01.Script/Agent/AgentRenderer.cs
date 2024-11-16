@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AgentRenderer : MonoBehaviour
+{
+
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
+    public void SetParam(AnimParamSO param, bool value) => _animator.SetBool(param.hashValue, value);
+    public void SetParam(AnimParamSO param, float value) => _animator.SetFloat(param.hashValue, value);
+    public void SetParam(AnimParamSO param, int value) => _animator.SetInteger(param.hashValue, value);
+    public void SetParam(AnimParamSO param) => _animator.SetTrigger(param.hashValue);
+}

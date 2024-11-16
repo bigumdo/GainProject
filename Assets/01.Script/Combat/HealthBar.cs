@@ -5,13 +5,15 @@ using UnityEngine.Rendering;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private Agent _owner;
+    private Agent _owner;
     [SerializeField] private Image _healthbarImage;
     private CanvasGroup _canvasGroup;
 
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
+        _owner = transform.root.GetComponent<Agent>();
+
     }
 
 
