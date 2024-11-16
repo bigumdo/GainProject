@@ -15,6 +15,7 @@ public abstract class AgentState
     {
         _agent = agent;
         _animParam = animParam;
+        _renderer = agent.GetComponent<AgentRenderer>();
     }
 
     public virtual void Enter()

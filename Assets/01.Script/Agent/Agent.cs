@@ -11,7 +11,7 @@ public class Agent : MonoBehaviour
     public SpriteRenderer SpriteRendererCompo { get; protected set; }
     public Health HealthCompo { get; protected set; }
     public DamageCaster DamageCasterCompo  { get; protected set; }
-    public bool isDead;
+    [HideInInspector]public bool isDead;
     
 
     protected virtual void Awake()
@@ -21,13 +21,16 @@ public class Agent : MonoBehaviour
         SpriteRendererCompo = visual.GetComponent<SpriteRenderer>();
 
         DamageCasterCompo = transform.GetComponentInChildren<DamageCaster>();
-        DamageCasterCompo.InitCaster(this);
+        if(DamageCasterCompo != null)
+            DamageCasterCompo.InitCaster(this);
 
         MovementCompo = GetComponent<IMovement>();
         MovementCompo.Initialize(this);
-
-        Stat = Instantiate(Stat);
-        Stat.SetOwner(this);
+        if(Stat != null)
+        {
+            Stat = Instantiate(Stat);
+            Stat.SetOwner(this);
+        }
 
         HealthCompo = GetComponent<Health>();
         HealthCompo.Initialize(this);

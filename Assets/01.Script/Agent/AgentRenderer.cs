@@ -9,7 +9,7 @@ public class AgentRenderer : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _animator =  transform.GetComponentInChildren<Animator>();
     }
     public void SetParam(AnimParamSO param, bool value) => _animator.SetBool(param.hashValue, value);
     public void SetParam(AnimParamSO param, float value) => _animator.SetFloat(param.hashValue, value);

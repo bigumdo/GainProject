@@ -37,7 +37,7 @@ public class PlayerDashState : PlayerState
         }
         else
         {
-            _player.PlayerMovementCompo.Dash(_player.dashPower);
+            //_player.PlayerMovementCompo.Dash(_player.dashPower);
             currentDashTime -= Time.deltaTime;
         }
 

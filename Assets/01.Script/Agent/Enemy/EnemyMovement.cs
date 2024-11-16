@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WolfMovement : AgentMovement
+public class EnemyMovement : AgentMovement
 {
     
 }

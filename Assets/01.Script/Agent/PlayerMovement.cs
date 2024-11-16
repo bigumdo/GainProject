@@ -36,9 +36,8 @@ public class PlayerMovement : AgentMovement, IPlayerMovement
 
     public void Dash(float dashPower)
     {
-        //StopImmediately();
-        IsDash = false;
         StopImmediately();
+        IsDash = false;
         Vector3 dir = GameManager.Instance.MouseDir;
         _rigid.velocity = dir * dashPower;
     }
