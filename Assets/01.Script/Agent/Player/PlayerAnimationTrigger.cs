@@ -8,6 +8,8 @@ public class PlayerAnimationTrigger : MonoBehaviour
     public void AnimationEnd()
     {
         player.StateMachine.CurrentState.AnimationFinishTrigger();
+
+
     }
 
     public void DamageCaster()

@@ -22,10 +22,10 @@ public class Health : MonoBehaviour, IDamage
     {
         if (_owner.isDead) return;
 
+        _owner.stateMachine.ChangeState(FSMState.Hit);
         _isCritical = _owner.Stat.IsCritical(ref damage);
 
         damage = _owner.Stat.ArmorDamage(damage);
-
         _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _owner.Stat.maxHealth.GetValue());
         OnHitEvent?.Invoke();
         if (_currentHealth <= 0)

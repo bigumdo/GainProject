@@ -2,17 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WolfAttackState : MonoBehaviour
+public class WolfAttackState : AgentState
 {
-    // Start is called before the first frame update
-    void Start()
+    private Wolf _wolf;
+    private WolfMovement _movement;
+    public WolfAttackState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
     {
-        
+        _wolf = agent as Wolf;
+        _movement = _wolf.WolfMoveCompo;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        base.Enter();
+        _wolf.powerChargeBar.gameObject.SetActive(false);
+        Vector3 vec = GameManager.Instance.Player.transform.position - _wolf.transform.position;
+        _movement.Attack(vec.normalized);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        if(_isTriggerCall)
+        {
+            _movement.StopImmediately();
+            _wolf.stateMachine.ChangeState(FSMState.Idle);
+
+        }
     }
 }

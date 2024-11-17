@@ -8,7 +8,6 @@ public enum PlayerStateEnum
     Run,
     Jump,
     Fall,
-    Attack,
     Dash
     
 }

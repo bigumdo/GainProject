@@ -9,9 +9,9 @@ public class EnemyCast : MonoBehaviour
 
     public bool CheckRange()
     {
-        Collider[] hit;
-        hit = Physics.OverlapSphere(transform.position, _checkRange, _layerMask);
-        if(hit.Length > 0)
+        Collider2D hit;
+        hit = Physics2D.OverlapCircle(transform.position, _checkRange, _layerMask); 
+        if(hit)
             return true;
         else return false;
     }

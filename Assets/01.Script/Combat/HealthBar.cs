@@ -20,7 +20,7 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         _owner.HealthCompo.OnHitEvent.AddListener(HandleHitEvent);
-        _owner.HealthCompo.OnDeadEvent.AddListener(HandleDeadEvent);
+        _owner.HealthCompo.OnDeadEvent.AddListener(HandleDieEvent);
     }
 
 
@@ -31,8 +31,9 @@ public class HealthBar : MonoBehaviour
         _healthbarImage.fillAmount = fillAmount;
     }
 
-    private void HandleDeadEvent()
+    private void HandleDieEvent()
     {
+        _owner.Die();
         _canvasGroup.DOFade(0, 1);
     }
 }

@@ -12,7 +12,8 @@ public class Agent : MonoBehaviour
     public Health HealthCompo { get; protected set; }
     public DamageCaster DamageCasterCompo  { get; protected set; }
     [HideInInspector]public bool isDead;
-    
+    public StateMachine stateMachine;
+
 
     protected virtual void Awake()
     {
@@ -39,5 +40,10 @@ public class Agent : MonoBehaviour
     public virtual void Attack()
     {
 
+    }
+
+    public virtual void Die()
+    {
+        
     }
 }

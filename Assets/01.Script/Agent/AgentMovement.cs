@@ -36,7 +36,7 @@ public class AgentMovement : MonoBehaviour,IMovement
     }
 
 
-    public void Knockback(float power)
+    public virtual void Knockback(float power)
     {
         
     }
@@ -86,7 +86,7 @@ public class AgentMovement : MonoBehaviour,IMovement
         }
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Movement();
         SetMovement(_movement);

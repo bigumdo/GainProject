@@ -25,7 +25,7 @@ MonoBehaviour:
     statList: 
     isPersent: 0
   maxHealth:
-    _baseValue: 1000
+    _baseValue: 50
     statList: 
     isPersent: 0
   criticalChance:
