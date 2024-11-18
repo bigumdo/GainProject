@@ -31,5 +31,10 @@ public class Enemy : Agent
         stateMachine.ChangeState(FSMState.Die);
     }
 
+    public override void Attack()
+    {
+        DamageCasterCompo.DamageCast();
+    }
+
     public void ChangeState(FSMState newState) => stateMachine.ChangeState(newState);
 }

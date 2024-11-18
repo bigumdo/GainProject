@@ -6,7 +6,15 @@ public class GameManager : Monosingleton<GameManager>
 {
     public Player Player { get; private set; }
     public float MouseAngle { get; private set; }
-    public Vector3 MouseDir { get; private set; }
+    public Vector2 MouseDir
+    {
+        get
+        {
+            Vector2 playerPos = Player.transform.position; // 플레이어 위치
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치
+            return (mousePos - playerPos).normalized; // 방향 벡터를 반환 (크기 1)
+        }
+    }
 
 
     private void Awake()
@@ -21,8 +29,6 @@ public class GameManager : Monosingleton<GameManager>
 
     private void MousePosition()
     {
-        Vector3 MouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        MouseDir = (MouseWorldPos - Player.transform.position).normalized;
         MouseAngle = Mathf.Atan2(MouseDir.y, MouseDir.x) * Mathf.Rad2Deg;
         //if (Mathf.Abs(Mouse) > 90)
         //{

@@ -5,14 +5,13 @@ using UnityEngine.Rendering;
 
 public class HealthBar : MonoBehaviour
 {
-    private Agent _owner;
+    [SerializeField] private Agent _owner;
     [SerializeField] private Image _healthbarImage;
     private CanvasGroup _canvasGroup;
 
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        _owner = transform.root.GetComponent<Agent>();
 
     }
 
@@ -27,6 +26,7 @@ public class HealthBar : MonoBehaviour
 
     private void HandleHitEvent()
     {
+        Debug.Log(1);
         float fillAmount = _owner.HealthCompo.GetNormalizeHealth();
         _healthbarImage.fillAmount = fillAmount;
     }
@@ -34,6 +34,7 @@ public class HealthBar : MonoBehaviour
     private void HandleDieEvent()
     {
         _owner.Die();
-        _canvasGroup.DOFade(0, 1);
+        if(!(_owner is Player))
+            _canvasGroup.DOFade(0, 1);
     }
 }

@@ -7,7 +7,7 @@ public class AgentRenderer : MonoBehaviour
 
     private Animator _animator;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _animator =  transform.GetComponentInChildren<Animator>();
     }
@@ -15,4 +15,9 @@ public class AgentRenderer : MonoBehaviour
     public void SetParam(AnimParamSO param, float value) => _animator.SetFloat(param.hashValue, value);
     public void SetParam(AnimParamSO param, int value) => _animator.SetInteger(param.hashValue, value);
     public void SetParam(AnimParamSO param) => _animator.SetTrigger(param.hashValue);
+
+    private void Update()
+    {
+        
+    }
 }

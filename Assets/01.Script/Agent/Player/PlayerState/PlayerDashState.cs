@@ -22,6 +22,7 @@ public class PlayerDashState : PlayerState
 
     public override void Exit()
     {
+        _player.MovementCompo.Rigid.gravityScale = 1;
         _player.PlayerMovementCompo.IsOnDash = false;
         base.Exit();
     }

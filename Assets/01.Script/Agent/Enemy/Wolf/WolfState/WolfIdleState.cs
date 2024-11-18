@@ -12,12 +12,13 @@ public class WolfIdleState : AgentState
 
     public override void Enter()
     {
+
         base.Enter();
     }
 
     public override void Exit()
     {
-
+        _wolf.powerChargeBar.gameObject.SetActive(false);
         base.Exit();
     }
 

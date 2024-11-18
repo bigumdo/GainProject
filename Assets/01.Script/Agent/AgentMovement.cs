@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class AgentMovement : MonoBehaviour,IMovement
+public class AgentMovement : MonoBehaviour, IMovement
 
 
 {
@@ -98,7 +98,7 @@ public class AgentMovement : MonoBehaviour,IMovement
         if(_groundCheck != null)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawRay(_groundCheck.position, Vector2.down * 0.2f);
+            Gizmos.DrawRay(_groundCheck.position, Vector2.down * 0.1f);
         }
     }
 }
