@@ -13,8 +13,8 @@ public class Wolf : Enemy
 
     protected override void Awake()
     {
-        WolfMoveCompo = GetComponent<WolfMovement>();
         base.Awake();
+        WolfMoveCompo = GetComponent<WolfMovement>();
         powerChargeBar.gameObject.SetActive(false);
         _enemyCast = GetComponent<EnemyCast>();
     }

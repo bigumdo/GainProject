@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   strength:
-    _baseValue: 0
+    _baseValue: 20
     statList: 
     isPersent: 0
   agility:

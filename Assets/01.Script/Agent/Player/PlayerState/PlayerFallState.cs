@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFallState : AgentState
+public class PlayerFallState : PlayerAirState
 {
-    private Player _player;
 
     public PlayerFallState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
     {

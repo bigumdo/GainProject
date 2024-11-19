@@ -7,7 +7,6 @@ public class Enemy : Agent
     [SerializeField] private StateListSO states;
 
 
-
     protected override void Awake()
     {
         base.Awake();
