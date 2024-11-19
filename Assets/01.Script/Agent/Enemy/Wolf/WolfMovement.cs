@@ -25,7 +25,8 @@ public class WolfMovement : AgentMovement
         StopImmediately();
         _dir = dir;
         //Rigid.gravityScale = 0;
-        Rigid.AddForce(new Vector2(dir.x,3),ForceMode2D.Impulse);
+        //Rigid.AddForce(new Vector2(dir.x,3),ForceMode2D.Impulse);
+        AddForce(new Vector2(dir.x, 3));
     }
 
 

@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerAirState
 {
-    // Start is called before the first frame update
-    public PlayerJumpState(Player player, PlayerStateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+    public PlayerJumpState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
     {
-
     }
-    
+
+
 
     public override void Enter()
     {
@@ -27,10 +26,10 @@ public class PlayerJumpState : PlayerAirState
         base.Exit();
     }
 
-    public override void UpdateState()
+    public override void Update()
     {
-        base.UpdateState();
+        base.Update();
         if (_player.MovementCompo.Rigid.velocity.y < -0.5f)
-            _player.StateMachine.ChangeState(PlayerStateEnum.Fall);
+            _player.stateMachine.ChangeState(FSMState.Fall);
     }
 }

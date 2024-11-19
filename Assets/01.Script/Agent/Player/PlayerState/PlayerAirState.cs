@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAirState : PlayerState
+public class PlayerAirState : AgentState
 {
-    public PlayerAirState(Player player, PlayerStateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+    protected Player _player;
+    public PlayerAirState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
     {
+        _player = agent as Player;
     }
 
     public override void Enter()
@@ -26,16 +28,16 @@ public class PlayerAirState : PlayerState
     private void HandleJumpEvent()
     {
         if(_player.CanJump)
-            _player.StateMachine.ChangeState(PlayerStateEnum.Jump);
+            _player.stateMachine.ChangeState(FSMState.Jump);
     }
 
     private void HandleDashEvent()
     {
         if (_player.PlayerMovementCompo.IsDash)
-            _player.StateMachine.ChangeState(PlayerStateEnum.Dash);
+            _player.stateMachine.ChangeState(FSMState.Dash);
     }
 
-    public override void UpdateState()
+    public override void Update()
     {
         _player.MovementCompo.SetMovement(_player.inputReader.Movement.x * 0.7f * _player.moveSpeed);
         //if (Input.GetKeyDown(KeyCode.Q))

@@ -17,7 +17,9 @@ public class WolfAttackState : AgentState
         base.Enter();
         _wolf.powerChargeBar.gameObject.SetActive(false);
         Vector3 vec = GameManager.Instance.Player.transform.position - _wolf.transform.position;
-        _movement.Attack(vec.normalized * (vec.sqrMagnitude + 1));
+        _movement.Attack(vec.normalized * (vec.sqrMagnitude * 2f));
+        _movement.Rigid.gravityScale = 3;
+
     }
 
     public override void Exit()

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerGroundState
 {
-    // Start is called before the first frame update
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+    public PlayerIdleState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
     {
     }
+
+    // Start is called before the first frame update
 
     public override void Enter()
     {
@@ -22,11 +23,11 @@ public class PlayerIdleState : PlayerGroundState
         base.Exit();
     }
 
-    public override void UpdateState()
+    public override void Update()
     {
-        base.UpdateState();
+        base.Update();
         if(Mathf.Abs(_player.inputReader.Movement.x) > 0.1f)
-            _player.StateMachine.ChangeState(PlayerStateEnum.Run);
+            _player.stateMachine.ChangeState(FSMState.Run);
         _player.MovementCompo.SetMovement(0);
     }
 }

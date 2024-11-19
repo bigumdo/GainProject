@@ -26,7 +26,6 @@ public class HealthBar : MonoBehaviour
 
     private void HandleHitEvent()
     {
-        Debug.Log(1);
         float fillAmount = _owner.HealthCompo.GetNormalizeHealth();
         _healthbarImage.fillAmount = fillAmount;
     }

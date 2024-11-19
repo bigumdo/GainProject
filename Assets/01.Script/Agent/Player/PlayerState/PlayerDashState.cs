@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDashState : PlayerState
+public class PlayerDashState : AgentState
 {
     private float currentDashTime;
-    public PlayerDashState(Player player, PlayerStateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
-    {
+    private Player _player;
 
+    public PlayerDashState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
+    {
+        _player = agent as Player;
     }
 
     public override void Enter()
@@ -17,7 +19,6 @@ public class PlayerDashState : PlayerState
         _player.PlayerMovementCompo.IsOnDash = true;
         currentDashTime = _player.dashTime;
         _player.PlayerMovementCompo.Dash(_player.dashPower);
-
     }
 
     public override void Exit()
@@ -27,12 +28,12 @@ public class PlayerDashState : PlayerState
         base.Exit();
     }
 
-    public override void UpdateState()
+    public override void Update()
     {
-        base.UpdateState();
+        base.Update();
         if(currentDashTime <= 0)
         {
-            _player.StateMachine.ChangeState(PlayerStateEnum.Idle);
+            _player.stateMachine.ChangeState(FSMState.Idle);
             currentDashTime = _player.dashTime;
 
         }

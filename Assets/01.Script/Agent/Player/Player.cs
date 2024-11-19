@@ -14,6 +14,8 @@ public class Player : Agent
     public float dashTime;
     public float jumpCnt;
 
+    [SerializeField] private StateListSO states;
+
     private float _currentJumpCnt;
     public bool CanJump => _currentJumpCnt > 0;
 
@@ -22,35 +24,45 @@ public class Player : Agent
     //[HideInInspector]public Weapon currentWeapon;
     
  
-    public PlayerStateMachine StateMachine { get; protected set; }
+    //public PlayerStateMachine StateMachine { get; protected set; }
 
 
     protected override void Awake()
     {
         _currentJumpCnt = jumpCnt;
         base.Awake();
-        StateMachine = new PlayerStateMachine();
+        stateMachine = new StateMachine(states, this);
         PlayerMovementCompo = GetComponent<IPlayerMovement>();
-        foreach (PlayerStateEnum stateEnum in Enum.GetValues(typeof(PlayerStateEnum)))
-        {
-            string typeName = stateEnum.ToString();
 
-            try
-            {
-                Type t = Type.GetType($"Player{typeName}State");
-                PlayerState state = Activator.CreateInstance(
-                    t, this, StateMachine, typeName) as PlayerState;
-                StateMachine.AddState(stateEnum, state);
-                
-            }catch(Exception ex)
-            {
-                Debug.LogError($"{typeName} is loading error! check Message");
-                Debug.LogError(ex.Message);
-            }
-        }
-        StateMachine.Initialize(PlayerStateEnum.Idle,this);
+        //StateMachine = new PlayerStateMachine();
+        //foreach (PlayerStateEnum stateEnum in Enum.GetValues(typeof(PlayerStateEnum)))
+        //{
+        //    string typeName = stateEnum.ToString();
+
+        //    try
+        //    {
+        //        Type t = Type.GetType($"Player{typeName}State");
+        //        PlayerState state = Activator.CreateInstance(
+        //            t, this, StateMachine, typeName) as PlayerState;
+        //        StateMachine.AddState(stateEnum, state);
+
+        //    }catch(Exception ex)
+        //    {
+        //        Debug.LogError($"{typeName} is loading error! check Message");
+        //        Debug.LogError(ex.Message);
+        //    }
+        //}
+        //StateMachine.Initialize(PlayerStateEnum.Idle,this);
         //SetWeaon();
     }
+
+    private void Start()
+    {
+        stateMachine.Initialize(FSMState.Idle);
+
+    }
+
+    public void ChangeState(FSMState newState) => stateMachine.ChangeState(newState);
 
     public void ResetJumpCnt()
     {
@@ -64,7 +76,8 @@ public class Player : Agent
 
     public void Update()
     {
-        StateMachine.CurrentState.UpdateState();
+        //StateMachine.CurrentState.UpdateState();
+        stateMachine.UpdateStateMachine();
     }
 
     public override void Attack()

@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerRunState : PlayerGroundState
 {
     private float _movement;
-    public PlayerRunState(Player player, PlayerStateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+
+    public PlayerRunState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
     {
     }
 
@@ -19,12 +20,12 @@ public class PlayerRunState : PlayerGroundState
         base.Exit();
     }
 
-    public override void UpdateState()
+    public override void Update()
     {
-        base.UpdateState();
+        base.Update();
         if (_player.inputReader.Movement.x == 0)
         {
-            _player.StateMachine.ChangeState(PlayerStateEnum.Idle);
+            _player.stateMachine.ChangeState(FSMState.Idle);
         }
 
         _player.MovementCompo.SetMovement(_player.inputReader.Movement.x * _player.moveSpeed);

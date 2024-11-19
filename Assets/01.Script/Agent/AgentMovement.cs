@@ -101,4 +101,9 @@ public class AgentMovement : MonoBehaviour, IMovement
             Gizmos.DrawRay(_groundCheck.position, Vector2.down * 0.1f);
         }
     }
+
+    public void AddForce(Vector2 vec)
+    {
+        Rigid.AddForce(vec,ForceMode2D.Impulse);
+    }
 }

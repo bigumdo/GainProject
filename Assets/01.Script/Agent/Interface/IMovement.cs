@@ -10,6 +10,7 @@ public interface IMovement
     public void Knockback(float power);
     public void StopImmediately();
     public void MoveDirection(float movement);
+    public void AddForce(Vector2 vec);
 
     public Rigidbody2D Rigid {  get; }
 }

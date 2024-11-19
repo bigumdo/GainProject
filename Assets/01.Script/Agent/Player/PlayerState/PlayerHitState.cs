@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHitState : PlayerState
+public class PlayerHitState : AgentState
 {
-    public PlayerHitState(Player player, PlayerStateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+    private Player _player;
+    public PlayerHitState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
     {
+        _player = agent as Player;
     }
 
-    public override void UpdateState()
+    public override void Update()
     {
         
-            if (_isEndTrigger)
-                _player.StateMachine.ChangeState(PlayerStateEnum.Idle);
+            if (_isTriggerCall)
+                _player.stateMachine.ChangeState(FSMState.Idle);
     }
 }

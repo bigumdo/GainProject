@@ -9317,6 +9317,7 @@ GameObject:
   - component: {fileID: 1971796281}
   - component: {fileID: 1971796284}
   - component: {fileID: 1971796285}
+  - component: {fileID: 1971796286}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -9426,6 +9427,7 @@ MonoBehaviour:
   gravity: 0.5
   dashTime: 0.2
   jumpCnt: 1
+  states: {fileID: 11400000, guid: 5f88cc0cdbaf7594f8e1e8dc67a77c91, type: 2}
   inputReader: {fileID: 11400000, guid: 7f957464fec3ce24c8c4c8fb027a710c, type: 2}
 --- !u!114 &1971796284
 MonoBehaviour:
@@ -9461,6 +9463,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _dashCoolTime: 1
+--- !u!114 &1971796286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971796278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd4dadd4afea1c141ba38bcb24d16ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2026611405 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6968368337296663320, guid: 48f04a7c4d40ac04fafb0e02510e85d5, type: 3}

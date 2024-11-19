@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFallState : PlayerAirState
+public class PlayerFallState : AgentState
 {
-    // Start is called before the first frame update
-    public PlayerFallState(Player player, PlayerStateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+    private Player _player;
+
+    public PlayerFallState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
     {
+        _player = agent as Player;
     }
+
+    // Start is called before the first frame update
 
     public override void Enter()
     {
@@ -21,13 +25,13 @@ public class PlayerFallState : PlayerAirState
         base.Exit();
     }
 
-    public override void UpdateState()
+    public override void Update()
     {
-        base.UpdateState();
+        base.Update();
         if(_player.MovementCompo.IsGorund)
         {
             _player.ResetJumpCnt();
-            _player.StateMachine.ChangeState(PlayerStateEnum.Idle);
+            _player.stateMachine.ChangeState(FSMState.Idle);
         }
     }
 }

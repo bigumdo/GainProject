@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGroundState : PlayerState
+public class PlayerGroundState : AgentState
 {
-    // Start is called before the first frame update
-    public PlayerGroundState(Player player, PlayerStateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+    protected Player _player;
+    public PlayerGroundState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
     {
+        _player = agent as Player;
     }
+
+    // Start is called before the first frame update
 
 
     public override void Enter()
@@ -28,20 +31,18 @@ public class PlayerGroundState : PlayerState
     private void HandleDashEvent()
     {
         if(_player.PlayerMovementCompo.IsDash)
-            _player.StateMachine.ChangeState(PlayerStateEnum.Dash);
+            _player.stateMachine.ChangeState(FSMState.Dash);
     }
 
     private void HandleJumpEvent()
     {
-        _player.StateMachine.ChangeState(PlayerStateEnum.Jump);
+        _player.stateMachine.ChangeState(FSMState.Jump);
 
     }
 
-    public override void UpdateState()
+    public override void Update()
     {
-        if(!_player.MovementCompo.IsGorund)
-            _player.StateMachine.ChangeState(PlayerStateEnum.Fall);
-        
-            
+        if (!_player.MovementCompo.IsGorund)
+            _player.stateMachine.ChangeState(FSMState.Fall);
     }
 }
