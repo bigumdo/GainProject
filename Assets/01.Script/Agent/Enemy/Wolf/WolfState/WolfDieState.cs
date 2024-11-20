@@ -13,6 +13,7 @@ public class WolfDieState : AgentState
     public override void Enter()
     {
         base.Enter();
+        _wolf.WolfMoveCompo.StopImmediately();
         //_wolf.isDead = true;
         _wolf.powerChargeBar.gameObject.SetActive(false);
     }

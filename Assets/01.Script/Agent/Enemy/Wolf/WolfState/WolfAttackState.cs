@@ -10,6 +10,7 @@ public class WolfAttackState : AgentState
     {
         _wolf = agent as Wolf;
         _movement = _wolf.WolfMoveCompo;
+
     }
 
     public override void Enter()

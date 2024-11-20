@@ -7,7 +7,7 @@ public class Health : MonoBehaviour, IDamage
 {
     public UnityEvent OnHitEvent;
     public UnityEvent OnDeadEvent;
-
+    public float CurrentHealth => _currentHealth;
     private Agent _owner;
     private int _currentHealth;
     private bool _isCritical;

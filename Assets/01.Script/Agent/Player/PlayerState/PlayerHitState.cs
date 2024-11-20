@@ -10,6 +10,13 @@ public class PlayerHitState : AgentState
         _player = agent as Player;
     }
 
+    public override void Enter()
+    {
+        
+        base.Enter();
+        
+    }
+
     public override void Update()
     {
         

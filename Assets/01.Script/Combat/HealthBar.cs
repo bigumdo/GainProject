@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.Rendering;
+using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private Agent _owner;
-    [SerializeField] private Image _healthbarImage;
+    [SerializeField] protected Agent _owner;
+    [SerializeField] protected Image _healthbarImage;
     private CanvasGroup _canvasGroup;
 
     private void Awake()
@@ -16,7 +17,7 @@ public class HealthBar : MonoBehaviour
     }
 
 
-    private void Start()
+    protected virtual void Start()
     {
         _owner.HealthCompo.OnHitEvent.AddListener(HandleHitEvent);
         _owner.HealthCompo.OnDeadEvent.AddListener(HandleDieEvent);
@@ -24,7 +25,7 @@ public class HealthBar : MonoBehaviour
 
 
 
-    private void HandleHitEvent()
+    protected virtual void HandleHitEvent()
     {
         float fillAmount = _owner.HealthCompo.GetNormalizeHealth();
         _healthbarImage.fillAmount = fillAmount;

@@ -10,6 +10,12 @@ public class WolfHitState : AgentState
         _wolf = agent as Wolf;
     }
 
+    public override void Enter()
+    {
+        _wolf.MovementCompo.StopImmediately();
+        base.Enter();
+    }
+
     public override void Update()
     {
         base.Update();
