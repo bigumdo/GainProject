@@ -590,14 +590,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4330019117969411908}
-  - component: {fileID: 123837726672239500}
+  - component: {fileID: 6881627996894191991}
   m_Layer: 6
   m_Name: DamageCaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4330019117969411908
 Transform:
   m_ObjectHideFlags: 0
@@ -613,7 +613,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7498347621575297006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &123837726672239500
+--- !u!114 &6881627996894191991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6968368337296663320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 365bb2227c09a85498ed40e99dd8e3e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c5468960f0ce7c4191a90105077d471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetLayer:
@@ -631,9 +631,9 @@ MonoBehaviour:
   OnDamageCastEvent:
     m_PersistentCalls:
       m_Calls: []
-  detectionRange: 0.7
-  checkAngle: 45
-  rayCount: 100
+  detectionRange: 0.79
+  checkAngle: 76.7
+  rayCount: 12
 --- !u!1001 &1877286078113223703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -769,6 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5c2c0d66846c14380f81ce05a4850c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _owner: {fileID: 2420479675944269868}
   _healthbarImage: {fileID: 6605384853980800528}
 --- !u!225 &9216428103837012639
 CanvasGroup:

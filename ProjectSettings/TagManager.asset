@@ -50,14 +50,14 @@ TagManager:
   - name: Item
     uniqueID: 2695446605
     locked: 0
-  - name: Player
-    uniqueID: 1505170837
+  - name: Enemy
+    uniqueID: 2000714989
     locked: 0
   - name: Obj
     uniqueID: 4294034571
     locked: 0
-  - name: Enemy
-    uniqueID: 2000714989
+  - name: Player
+    uniqueID: 1505170837
     locked: 0
   - name: UI
     uniqueID: 3742335105
