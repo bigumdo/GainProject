@@ -19,12 +19,14 @@ public class PlayerDashState : AgentState
         _player.PlayerMovementCompo.IsOnDash = true;
         currentDashTime = _player.dashTime;
         _player.PlayerMovementCompo.Dash(_player.dashPower);
+        _player.IsWeaponFlip = false;
     }
 
     public override void Exit()
     {
         _player.MovementCompo.Rigid.gravityScale = 1;
         _player.PlayerMovementCompo.IsOnDash = false;
+        _player.IsWeaponFlip = true;
         base.Exit();
     }
 

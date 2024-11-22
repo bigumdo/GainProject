@@ -5,16 +5,20 @@ using UnityEngine;
 public class CurrentWeapon : MonoBehaviour
 {
     private Weapon _weapon;
-    private Agent _owner;
+    private Player _owner;
     private float mouseDir;
     private void Awake()
     {
         _weapon = GetComponentInChildren<Weapon>();
-        _owner = transform.root.GetComponent<Agent>();
+        _owner = transform.root.GetComponent<Player>();
     }
 
     private void Update()
     {
+
+        if (!_owner.IsWeaponFlip)
+            return;
+
         mouseDir = GameManager.Instance.MouseAngle;
         if (Mathf.Abs(mouseDir) > 90)
         {
