@@ -11,7 +11,8 @@ public enum FSMState
     Jump,
     Fall,
     Hit,
-    Die
+    Die,
+    Pattern
 }
 
 [CreateAssetMenu(menuName ="SO/FSM/StateSO")]

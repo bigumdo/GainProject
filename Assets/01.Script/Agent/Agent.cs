@@ -12,6 +12,8 @@ public class Agent : MonoBehaviour
     public SpriteRenderer SpriteRendererCompo { get; protected set; }
     public Health HealthCompo { get; protected set; }
     public DamageCaster DamageCasterCompo  { get; protected set; }
+    public Collider2D Collider { get; private set; }
+
     [HideInInspector]public bool isDead;
     public StateMachine stateMachine;
 
@@ -21,6 +23,7 @@ public class Agent : MonoBehaviour
         Transform visual = transform.Find("Visual");
         AnimatorCompo = visual.GetComponent<Animator>();
         SpriteRendererCompo = visual.GetComponent<SpriteRenderer>();
+        Collider = GetComponent<Collider2D>();
 
         DamageCasterCompo = transform.GetComponentInChildren<DamageCaster>();
         if(DamageCasterCompo != null)

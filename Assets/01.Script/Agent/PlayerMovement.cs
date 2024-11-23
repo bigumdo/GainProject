@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : AgentMovement, IPlayerMovement
@@ -24,7 +25,7 @@ public class PlayerMovement : AgentMovement, IPlayerMovement
 
     public override void Movement()
     {
-        if(!IsOnDash)
+        if(!IsOnDash && _player.OnMove)
             base.Movement();
     }
 

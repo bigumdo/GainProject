@@ -36,7 +36,10 @@ public class PlayerGroundState : AgentState
 
     private void HandleJumpEvent()
     {
-        _player.stateMachine.ChangeState(FSMState.Jump);
+        if (_player.inputReader.Movement.y < 0 && _player.Platfrom != null)
+            _player.Platfrom.SetIgnore(_player.Collider,1f);
+        else
+            _player.stateMachine.ChangeState(FSMState.Jump);
 
     }
 

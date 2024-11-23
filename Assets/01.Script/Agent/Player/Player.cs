@@ -22,9 +22,11 @@ public class Player : Agent
     public InputReader inputReader;
     public IPlayerMovement PlayerMovementCompo { get; private set; }
     public bool IsWeaponFlip { get; set; } = true;
+    public bool OnMove { get; set; } = true;
     //[HideInInspector]public Weapon currentWeapon;
 
     public Platform Platfrom { get; set; }
+
  
     //public PlayerStateMachine StateMachine { get; protected set; }
 
