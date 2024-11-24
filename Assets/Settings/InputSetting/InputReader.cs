@@ -35,8 +35,7 @@ public class InputReader : ScriptableObject,Controls.IPlayerActions
         {
             Movement = Vector2.zero;
         }
-        
-        MovementEvent?.Invoke(Movement);
+            MovementEvent?.Invoke(Movement);
     }
 
     public void OnJump(InputAction.CallbackContext context)

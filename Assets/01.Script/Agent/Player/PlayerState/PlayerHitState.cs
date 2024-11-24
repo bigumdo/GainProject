@@ -19,7 +19,7 @@ public class PlayerHitState : AgentState
 
     public override void Update()
     {
-        
+        base.Update();
             if (_isTriggerCall)
                 _player.stateMachine.ChangeState(FSMState.Idle);
     }

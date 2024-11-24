@@ -45,6 +45,7 @@ public class PlayerGroundState : AgentState
 
     public override void Update()
     {
+        base.Update();
         if (!_player.MovementCompo.IsGorund)
             _player.stateMachine.ChangeState(FSMState.Fall);
     }

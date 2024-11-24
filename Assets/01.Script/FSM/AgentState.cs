@@ -24,7 +24,11 @@ public abstract class AgentState
         _isTriggerCall = false;
     }
 
-    public virtual void Update() { }
+    public virtual void Update()
+    {
+        //if(!_agent.OnMove)
+        //    _agent.MovementCompo.StopImmediately();
+    }
 
     public virtual void Exit()
     {

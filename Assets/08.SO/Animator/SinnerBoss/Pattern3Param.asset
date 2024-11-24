@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4301c22c0b7674c4b9d24d8b95bcb8d0, type: 3}
-  m_Name: SinnerBossPattern1State
+  m_Name: Pattern3Param
   m_EditorClassIdentifier: 
-  paramName: 
+  paramName: Pattern3
   paramType: 0
-  hashValue: 0
+  hashValue: -1643643370

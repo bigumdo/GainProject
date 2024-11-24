@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa85ae35ccc61f43a9c86bf7f2d8eb5, type: 3}
   m_Name: SinnerBossStateList
   m_EditorClassIdentifier: 
-  stateList: []
+  stateList:
+  - {fileID: 11400000, guid: 0b889a1609bd34845af8d946a60583e0, type: 2}
+  - {fileID: 11400000, guid: ad779475a7477f64d8f1a73fca2ec9e4, type: 2}
+  - {fileID: 11400000, guid: 3255157ba69863e48accc40a31ccfc46, type: 2}
+  - {fileID: 11400000, guid: 1645162896ab48243b14bcc42d1b78b7, type: 2}
+  - {fileID: 11400000, guid: 886c74f6384e88d4594389d026023946, type: 2}

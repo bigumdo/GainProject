@@ -27,6 +27,11 @@ public class PlayerMovement : AgentMovement, IPlayerMovement
     {
         if(!IsOnDash && _player.OnMove)
             base.Movement();
+        if(!_player.OnMove && _player.MovementCompo.IsGorund)
+        {
+            StopImmediately();
+            _player.ChangeState(FSMState.Idle);
+        }
     }
 
     public void Jump(float power)
@@ -47,6 +52,7 @@ public class PlayerMovement : AgentMovement, IPlayerMovement
     public override void Update()
     {
         base.Update();
+
         if (!IsDash && _currentDashCoolTime > 0)
         {
             _currentDashCoolTime -= Time.deltaTime;

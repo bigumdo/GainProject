@@ -39,6 +39,7 @@ public class PlayerAirState : AgentState
 
     public override void Update()
     {
+        base.Update();
         _player.MovementCompo.SetMovement(_player.inputReader.Movement.x * 0.7f * _player.moveSpeed);
         //if (Input.GetKeyDown(KeyCode.Q))
         //{

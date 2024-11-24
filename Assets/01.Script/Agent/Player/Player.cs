@@ -22,7 +22,6 @@ public class Player : Agent
     public InputReader inputReader;
     public IPlayerMovement PlayerMovementCompo { get; private set; }
     public bool IsWeaponFlip { get; set; } = true;
-    public bool OnMove { get; set; } = true;
     //[HideInInspector]public Weapon currentWeapon;
 
     public Platform Platfrom { get; set; }
@@ -82,6 +81,7 @@ public class Player : Agent
     {
         //StateMachine.CurrentState.UpdateState();
         stateMachine.UpdateStateMachine();
+
     }
 
     public override void Attack()
@@ -99,6 +99,8 @@ public class Player : Agent
         yield return new WaitForSeconds(delay);
         action?.Invoke();
     }
+
+
 
 
 }

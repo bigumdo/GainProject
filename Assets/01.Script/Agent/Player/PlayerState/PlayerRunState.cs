@@ -27,6 +27,7 @@ public class PlayerRunState : PlayerGroundState
         {
             _player.stateMachine.ChangeState(FSMState.Idle);
         }
+        
 
         _player.MovementCompo.SetMovement(_player.inputReader.Movement.x * _player.moveSpeed);
     }

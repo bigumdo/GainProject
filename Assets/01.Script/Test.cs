@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
+    [SerializeField] private Player player;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            Time.timeScale = 0;
+            player.StartMove();
+            //Time.timeScale = 0;
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-
-            Time.timeScale = 1;
+            player.StopMove();
+            //Time.timeScale = 1;
         }
     }
 }

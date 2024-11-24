@@ -9,11 +9,12 @@ public class StateMachine
 {
     public AgentState currentState { get; private set; }
     private Dictionary<FSMState, AgentState> _states;
+    private Agent _agent;
 
     public StateMachine(StateListSO fsmStates, Agent agent)
     {
         _states = new Dictionary<FSMState, AgentState>();
-
+        _agent = agent;
         foreach (StateSO state in fsmStates.stateList)
         {
             try
@@ -24,6 +25,8 @@ public class StateMachine
             }
             catch (Exception ex)
             {
+                Debug.Log(Type.GetType(state.className));
+                Debug.Log(state.animParam);
                 Debug.LogError($"{state.className} loading Error, Message : {ex.Message}");
             }
         }
@@ -39,6 +42,8 @@ public class StateMachine
 
     public void ChangeState(FSMState newState)
     {
+        
+        
         currentState.Exit();
         currentState = GetState(newState);
         Debug.Assert(currentState != null, $"{newState} state not found");

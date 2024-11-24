@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e26a01dd91929d44aa86f0a1e173566, type: 3}
   m_Name: SinnerBossHitState
   m_EditorClassIdentifier: 
-  StateEnum: 0
-  className: 
-  animParam: {fileID: 0}
+  StateEnum: 6
+  className: SinnerBossHitState
+  animParam: {fileID: 11400000, guid: d1cfa1efdc930b44ba42e4e0ec6772d4, type: 2}
