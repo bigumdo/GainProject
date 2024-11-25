@@ -21,6 +21,6 @@ public class PlayerHitState : AgentState
     {
         base.Update();
             if (_isTriggerCall)
-                _player.stateMachine.ChangeState(FSMState.Idle);
+                _player.StateMachine.ChangeState(FSMState.Idle);
     }
 }

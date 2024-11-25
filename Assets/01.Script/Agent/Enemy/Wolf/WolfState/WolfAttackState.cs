@@ -39,7 +39,7 @@ public class WolfAttackState : AgentState
         if(_isTriggerCall)
         {
             _movement.StopImmediately();
-            _wolf.stateMachine.ChangeState(FSMState.Idle);
+            _wolf.StateMachine.ChangeState(FSMState.Idle);
         }
     }
 }

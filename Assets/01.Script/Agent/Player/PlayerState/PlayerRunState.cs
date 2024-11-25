@@ -25,7 +25,7 @@ public class PlayerRunState : PlayerGroundState
         base.Update();
         if (_player.inputReader.Movement.x == 0)
         {
-            _player.stateMachine.ChangeState(FSMState.Idle);
+            _player.StateMachine.ChangeState(FSMState.Idle);
         }
         
 

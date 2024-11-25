@@ -21,8 +21,10 @@ public class Health : MonoBehaviour, IDamage
     public void ApplyDamage(int damage)
     {
         if (_owner.isDead) return;
-
-        _owner.stateMachine.ChangeState(FSMState.Hit);
+        if(_owner.TryGetComponent(out Player player))
+            _owner.StateMachine.ChangeState(FSMState.Hit);
+        if (_owner.TryGetComponent(out Enemy enemy))
+            _owner.StateMachine.ChangeState(FSMState.Hit);
         _isCritical = _owner.Stat.IsCritical(ref damage);
 
         damage = _owner.Stat.ArmorDamage(damage);

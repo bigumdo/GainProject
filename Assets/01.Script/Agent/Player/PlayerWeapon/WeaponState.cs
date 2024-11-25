@@ -9,7 +9,7 @@ public class WeaponState<T> where T : Enum
     protected Weapon _weapon;
     protected WeaponStateMachine<T> _stateMachine;
     protected int _animaHash;
-    protected bool _isAttack;
+    protected bool _isAttack = true;
 
     protected bool _isEndTrigger;
     protected bool _isAttackTrigger;

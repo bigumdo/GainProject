@@ -7,7 +7,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
     public Player player;
     public void AnimationEnd()
     {
-        player.stateMachine.currentState.AnimationEndTrigger();
+        player.StateMachine.currentState.AnimationEndTrigger();
 
 
     }

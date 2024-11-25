@@ -17,7 +17,7 @@ public class Agent : MonoBehaviour
     public bool OnMove { get; set; } = true;
 
     [HideInInspector]public bool isDead;
-    public StateMachine stateMachine;
+    public StateMachine StateMachine { get; protected set; }
 
 
     protected virtual void Awake()

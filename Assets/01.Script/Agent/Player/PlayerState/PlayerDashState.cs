@@ -35,7 +35,7 @@ public class PlayerDashState : AgentState
         base.Update();
         if(currentDashTime <= 0)
         {
-            _player.stateMachine.ChangeState(FSMState.Idle);
+            _player.StateMachine.ChangeState(FSMState.Idle);
             currentDashTime = _player.dashTime;
 
         }

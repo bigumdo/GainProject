@@ -31,7 +31,7 @@ public class WolfIdleState : AgentState
 
             if (_wolf.powerChargeBar.PowerCharge())
             {
-                _wolf.stateMachine.ChangeState(FSMState.Attack);
+                _wolf.StateMachine.ChangeState(FSMState.Attack);
 
             }
         }

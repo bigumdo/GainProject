@@ -18,7 +18,8 @@ public class CurrentWeapon : MonoBehaviour
 
         if (!_owner.IsWeaponFlip)
             return;
-
+        if(_owner.isDead)
+            gameObject.SetActive(false);
         mouseDir = GameManager.Instance.MouseAngle;
         if (Mathf.Abs(mouseDir) > 90)
         {

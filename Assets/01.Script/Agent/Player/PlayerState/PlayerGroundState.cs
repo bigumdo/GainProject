@@ -31,7 +31,7 @@ public class PlayerGroundState : AgentState
     private void HandleDashEvent()
     {
         if(_player.PlayerMovementCompo.IsDash)
-            _player.stateMachine.ChangeState(FSMState.Dash);
+            _player.StateMachine.ChangeState(FSMState.Dash);
     }
 
     private void HandleJumpEvent()
@@ -39,7 +39,7 @@ public class PlayerGroundState : AgentState
         if (_player.inputReader.Movement.y < 0 && _player.Platfrom != null)
             _player.Platfrom.SetIgnore(_player.Collider,1f);
         else
-            _player.stateMachine.ChangeState(FSMState.Jump);
+            _player.StateMachine.ChangeState(FSMState.Jump);
 
     }
 
@@ -47,6 +47,6 @@ public class PlayerGroundState : AgentState
     {
         base.Update();
         if (!_player.MovementCompo.IsGorund)
-            _player.stateMachine.ChangeState(FSMState.Fall);
+            _player.StateMachine.ChangeState(FSMState.Fall);
     }
 }

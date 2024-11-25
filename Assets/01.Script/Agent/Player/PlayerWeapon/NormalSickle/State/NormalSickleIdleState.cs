@@ -24,7 +24,13 @@ public class NormalSickleIdleState : NormalSickleDefaultState
 
     private void HandleAttackEvent()
     {
-        _stateMachine.ChangeState(NormalSickleEnum.Attack);
+        if(_isAttack) 
+            _stateMachine.ChangeState(NormalSickleEnum.Attack);
+    }
+
+    public override void AnimationEndTrigger()
+    {
+        base.AnimationEndTrigger();
     }
 }
 

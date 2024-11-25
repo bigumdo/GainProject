@@ -10,24 +10,24 @@ public class Enemy : Agent
     protected override void Awake()
     {
         base.Awake();
-        stateMachine = new StateMachine(states,this);
+        StateMachine = new StateMachine(states,this);
 
     }
 
     private void Start()
     {
-        stateMachine.Initialize(FSMState.Idle);
+        StateMachine.Initialize(FSMState.Idle);
     }
 
     private void Update()
     {
         if(isDead) return;
-            stateMachine.UpdateStateMachine();
+            StateMachine.UpdateStateMachine();
     }
 
     public override void Die()
     {
-        stateMachine.ChangeState(FSMState.Die);
+        StateMachine.ChangeState(FSMState.Die);
     }
 
     public override void Attack()
@@ -35,5 +35,5 @@ public class Enemy : Agent
         DamageCasterCompo.DamageCast();
     }
 
-    public void ChangeState(FSMState newState) => stateMachine.ChangeState(newState);
+    public void ChangeState(FSMState newState) => StateMachine.ChangeState(newState);
 }

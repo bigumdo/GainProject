@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateEnum: 10
   className: SinnerBossPattern3State
-  animParam: {fileID: 11400000, guid: 9610e14267098f944a7a131a08c08854, type: 2}
+  animParam: {fileID: 11400000, guid: e33ff6054109905498842536be354baf, type: 2}

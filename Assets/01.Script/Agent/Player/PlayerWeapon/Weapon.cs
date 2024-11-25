@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour, IWeapon
     public float attackDelay;
 
     private ParticleSystem effectObj;
+    public bool isAttack;
 
 
 

@@ -7,7 +7,7 @@ public class EnemyAnimationTrigger : MonoBehaviour
     public Enemy enemy;
     public void AnimationEnd()
     {
-        enemy.stateMachine.currentState.AnimationEndTrigger();
+        enemy.StateMachine.currentState.AnimationEndTrigger();
     }
 
     public void AnimationStart()

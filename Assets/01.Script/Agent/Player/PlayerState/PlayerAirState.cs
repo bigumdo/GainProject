@@ -28,13 +28,13 @@ public class PlayerAirState : AgentState
     private void HandleJumpEvent()
     {
         if(_player.CanJump)
-            _player.stateMachine.ChangeState(FSMState.Jump);
+            _player.StateMachine.ChangeState(FSMState.Jump);
     }
 
     private void HandleDashEvent()
     {
         if (_player.PlayerMovementCompo.IsDash)
-            _player.stateMachine.ChangeState(FSMState.Dash);
+            _player.StateMachine.ChangeState(FSMState.Dash);
     }
 
     public override void Update()

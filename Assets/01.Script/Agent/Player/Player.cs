@@ -34,7 +34,7 @@ public class Player : Agent
     {
         _currentJumpCnt = jumpCnt;
         base.Awake();
-        stateMachine = new StateMachine(states, this);
+        StateMachine = new StateMachine(states, this);
         PlayerMovementCompo = GetComponent<IPlayerMovement>();
 
         //StateMachine = new PlayerStateMachine();
@@ -61,11 +61,11 @@ public class Player : Agent
 
     private void Start()
     {
-        stateMachine.Initialize(FSMState.Idle);
+        StateMachine.Initialize(FSMState.Idle);
 
     }
 
-    public void ChangeState(FSMState newState) => stateMachine.ChangeState(newState);
+    public void ChangeState(FSMState newState) => StateMachine.ChangeState(newState);
 
     public void ResetJumpCnt()
     {
@@ -80,7 +80,7 @@ public class Player : Agent
     public void Update()
     {
         //StateMachine.CurrentState.UpdateState();
-        stateMachine.UpdateStateMachine();
+        StateMachine.UpdateStateMachine();
 
     }
 
@@ -100,7 +100,11 @@ public class Player : Agent
         action?.Invoke();
     }
 
-
+    public override void Die()
+    {
+        base.Die();
+        StateMachine.ChangeState(FSMState.Die);
+    }
 
 
 }

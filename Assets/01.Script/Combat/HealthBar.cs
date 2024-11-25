@@ -31,7 +31,7 @@ public class HealthBar : MonoBehaviour
         _healthbarImage.fillAmount = fillAmount;
     }
 
-    private void HandleDieEvent()
+    protected virtual void HandleDieEvent()
     {
         _owner.Die();
         if(!(_owner is Player))

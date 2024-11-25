@@ -30,7 +30,7 @@ public class PlayerFallState : PlayerAirState
         if(_player.MovementCompo.IsGorund)
         {
             _player.ResetJumpCnt();
-            _player.stateMachine.ChangeState(FSMState.Idle);
+            _player.StateMachine.ChangeState(FSMState.Idle);
         }
     }
 }

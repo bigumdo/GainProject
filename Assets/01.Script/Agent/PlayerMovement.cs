@@ -25,6 +25,7 @@ public class PlayerMovement : AgentMovement, IPlayerMovement
 
     public override void Movement()
     {
+        if(_player.isDead) return;
         if(!IsOnDash && _player.OnMove)
             base.Movement();
         if(!_player.OnMove && _player.MovementCompo.IsGorund)

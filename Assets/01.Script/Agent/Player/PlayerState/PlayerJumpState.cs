@@ -30,6 +30,6 @@ public class PlayerJumpState : PlayerAirState
     {
         base.Update();
         if (_player.MovementCompo.Rigid.velocity.y < -0.5f)
-            _player.stateMachine.ChangeState(FSMState.Fall);
+            _player.StateMachine.ChangeState(FSMState.Fall);
     }
 }

@@ -13,7 +13,7 @@ public class NormalSickleAttackState : WeaponState<NormalSickleEnum>
     public override void Enter()
     {
         base.Enter();
-        
+        _isAttack = false;
     }
 
     public override void Exit()
@@ -26,6 +26,7 @@ public class NormalSickleAttackState : WeaponState<NormalSickleEnum>
         base.StateUpdate();
         if(_isEndTrigger)
         {
+            _isAttack = true;
             _stateMachine.ChangeState(NormalSickleEnum.Idle);
         }
     }

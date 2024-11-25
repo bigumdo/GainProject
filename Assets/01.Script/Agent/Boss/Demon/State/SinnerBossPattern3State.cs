@@ -10,7 +10,11 @@ public class SinnerBossPattern3State : AgentState
         _sinnerBoss = agent as SinnerBoss;
     }
 
-
+    public override void Update()
+    {
+        base.Update();
+        _sinnerBoss.StateMachine.ChangeState(FSMState.Idle);
+    }
 
 
 }

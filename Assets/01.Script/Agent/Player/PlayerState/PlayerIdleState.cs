@@ -27,7 +27,7 @@ public class PlayerIdleState : PlayerGroundState
     {
         base.Update();
         if(Mathf.Abs(_player.inputReader.Movement.x) > 0.1f)
-            _player.stateMachine.ChangeState(FSMState.Run);
+            _player.StateMachine.ChangeState(FSMState.Run);
         _player.MovementCompo.SetMovement(0);
     }
 }

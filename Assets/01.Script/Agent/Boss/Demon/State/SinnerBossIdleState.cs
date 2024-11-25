@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SinnerBossIdleState : AgentState
@@ -15,6 +16,10 @@ public class SinnerBossIdleState : AgentState
 
     public override void Update()
     {
+        if (!GameManager.Instance.Player.OnMove)
+            return;
+        if (!_sinnerBoss.start)
+            return;
         base.Update();
         if (patternTime > time)
         {
@@ -24,19 +29,18 @@ public class SinnerBossIdleState : AgentState
         {
             time = 0;
             int Number = Random.Range(0, 3);
-
             switch (Number)
             {
                 case 0:
-                    _sinnerBoss.stateMachine.ChangeState(FSMState.Pattern1);
+                    _sinnerBoss.StateMachine.ChangeState(FSMState.Pattern1);
 
                     break;
                 case 1:
-                    _sinnerBoss.stateMachine.ChangeState(FSMState.Pattern2);
+                    _sinnerBoss.StateMachine.ChangeState(FSMState.Pattern2);
 
                     break;
                 case 2:
-                    _sinnerBoss.stateMachine.ChangeState(FSMState.Pattern3);
+                    _sinnerBoss.StateMachine.ChangeState(FSMState.Pattern3);
 
                     break;
             }
